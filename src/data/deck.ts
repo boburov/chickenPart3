@@ -3,7 +3,7 @@
 import raw from './bhp.json'
 import { formatNumber } from '../lib/format'
 import { splitRound } from '../lib/round'
-import type { BhpData, Cell, CostKey, Money, MoneyKey, ProcessingGroup, Summed } from './types'
+import type { BhpData, Cell, CostKey, Money, MoneyKey, ProcessingGroup, ProcessingItem, Summed } from './types'
 
 export const data = raw as unknown as BhpData
 
@@ -68,8 +68,9 @@ export interface Financing {
   exact: { total: number; bank: number; own: number }
 }
 
-function financing(total: Source, bank: Source, own: Source): Financing {
-  const [b, o] = splitRound([val(bank), val(own)], MLN_STEP)
+/** `target`: the total in rounding steps when it is fixed elsewhere (see SECTION_STEPS). */
+function financing(total: Source, bank: Source, own: Source, target?: number): Financing {
+  const [b, o] = splitRound([val(bank), val(own)], MLN_STEP, target)
   const [bp, op] = splitRound([val(bank), val(own)], val(total) / 100)
   return {
     total: mln(b + o, refsOf(total), true),
@@ -88,13 +89,15 @@ export interface BarRow {
   total: Fig
   share: Fig
   exact: { total: number; bank: number; own: number }
+  /** Units behind the bar (22 generators), shown next to its label. */
+  count?: { fig: Fig; unit: string }
 }
 
-type BarInput = { key: string; label: string; total: number; bank: number; own: number; src: { total: string[]; bank: string[]; own: string[] } }
+type BarInput = { key: string; label: string; total: number; bank: number; own: number; src: { total: string[]; bank: string[]; own: string[] }; count?: BarRow['count'] }
 
 /** Rounds rows so their million-$ labels add up to the rounded total, and shares to 100%. */
-function barRows(rows: BarInput[]): BarRow[] {
-  const totals = splitRound(rows.map((r) => r.total), MLN_STEP)
+function barRows(rows: BarInput[], target?: number): BarRow[] {
+  const totals = splitRound(rows.map((r) => r.total), MLN_STEP, target)
   const shares = splitRound(rows.map((r) => r.total), sumOf(rows, (r) => r.total) / 100)
   return rows.map((r, i) => ({
     key: r.key,
@@ -102,6 +105,7 @@ function barRows(rows: BarInput[]): BarRow[] {
     total: mln(totals[i], r.src.total),
     share: exact(shares[i], r.src.total),
     exact: { total: r.total, bank: r.bank, own: r.own },
+    count: r.count,
   }))
 }
 
@@ -109,7 +113,7 @@ export const COST_KEYS: CostKey[] = ['construction', 'equipment', 'chickens', 'f
 const COST_LABEL: Record<CostKey, string> = { construction: 'Қурилиш', equipment: 'Дастгоҳ', chickens: 'Жўжа', feed: 'Озуқа' }
 const ref = (c?: Cell | null) => (c ? [c.ref] : [])
 
-function costBars(cost: Money, bank: Money, own: Money, labels: Partial<Record<CostKey, string>> = {}): BarRow[] {
+function costBars(cost: Money, bank: Money, own: Money, labels: Partial<Record<CostKey, string>> = {}, target?: number): BarRow[] {
   return barRows(
     COST_KEYS.map((k) => ({
       key: k,
@@ -119,8 +123,17 @@ function costBars(cost: Money, bank: Money, own: Money, labels: Partial<Record<C
       own: val(own[k]),
       src: { total: ref(cost[k]), bank: ref(bank[k]), own: ref(own[k]) },
     })),
+    target,
   )
 }
+
+// The Жами slide splits the deck total across the sections, and each section page
+// rounds to that same share: 22 455 thousand $ is 22,45 on every slide (not 22,46),
+// so the section figures add up to the cover's 47,84 = 32,63 + 15,21.
+const SECTION_IDS: SectionId[] = ['broiler', 'eggs', 'processing']
+const SECTION_STEPS = Object.fromEntries(
+  splitRound(SECTION_IDS.map((id) => val(data.summary.sections[id].cost.total)), MLN_STEP).map((n, i) => [SECTION_IDS[i], n]),
+) as Record<SectionId, number>
 
 // ---------- tables (detail slides) ----------
 
@@ -161,9 +174,12 @@ export interface TableView {
   note?: string
 }
 
-const num = (c?: Cell | null, scale = 1, decimals = 0): TCell => (c?.value ? { fig: exact(val(c) / scale, [c.ref], decimals) } : { text: '—' })
-const money = (m?: Money, key: MoneyKey = 'total'): TCell => (m?.[key] ? { fig: exact(val(m[key]), [m[key]!.ref]) } : { text: '—' })
-const moneySum = (ms: Money[], key: MoneyKey): TCell => ({ fig: exact(sumOf(ms, (m) => val(m[key])), ms.flatMap((m) => ref(m[key]))) })
+/** Exact figure; one decimal only when the sheet has one (e.g. 1 777,5 thousand $). */
+const precise = (value: number, src: string[]): Fig => ({ value, decimals: Number.isInteger(Math.round(value * 1000) / 1000) ? 0 : 1, trim: true, src })
+const num = (c?: Cell | null, scale = 1, decimals?: number): TCell =>
+  c?.value ? { fig: decimals === undefined ? precise(val(c) / scale, [c.ref]) : exact(val(c) / scale, [c.ref], decimals) } : { text: '—' }
+const money = (m?: Money, key: MoneyKey = 'total'): TCell => (m?.[key] ? { fig: precise(val(m[key]), [m[key]!.ref]) } : { text: '—' })
+const moneySum = (ms: Money[], key: MoneyKey): TCell => ({ fig: precise(sumOf(ms, (m) => val(m[key])), ms.flatMap((m) => ref(m[key]))) })
 const blank: TCell = { text: '' }
 const COUNTRY_FLAG: Record<string, Flag> = { Хитой: 'cn', Польша: 'pl', Ўзбекистон: 'uz' }
 
@@ -256,8 +272,8 @@ function broilerView(slide: number): SectionView {
       { label: 'Йилига парранда', fig: millions(val(t.birdsPerYear) * 1000, [t.birdsPerYear.ref]), prefix: 'млн', unit: 'бош', hint: '6 марта боқилади' },
       { label: 'Бинолар', fig: exact(val(t.buildings), refsOf(t.buildings)), unit: 'та', hint: `${b.existing.buildings} таси мавжуд` },
     ],
-    financing: financing(t.cost.total!, t.bank.total!, t.own.total!),
-    bars: { title: 'Харажатлар таркиби', rows: costBars(t.cost, t.bank, t.own) },
+    financing: financing(t.cost.total!, t.bank.total!, t.own.total!, SECTION_STEPS.broiler),
+    bars: { title: 'Харажатлар таркиби', rows: costBars(t.cost, t.bank, t.own, {}, SECTION_STEPS.broiler) },
     breakdown: {
       title: 'Фабрикалар ҳолати',
       caption: 'гўшт ишлаб чиқаришдаги улуши',
@@ -346,8 +362,8 @@ function eggsView(slide: number): SectionView {
       { label: 'Товуқлар', fig: millions(val(t.hens) * 1000, [t.hens.ref]), prefix: 'млн', unit: 'бош' },
       { label: 'Бинолар', fig: exact(val(t.buildings), [t.buildings.ref]), unit: 'та' },
     ],
-    financing: financing(t.cost.total!, t.bank.total!, t.own.total!),
-    bars: { title: 'Харажатлар таркиби', rows: costBars(t.cost, t.bank, t.own, { chickens: 'Товуқ' }) },
+    financing: financing(t.cost.total!, t.bank.total!, t.own.total!, SECTION_STEPS.eggs),
+    bars: { title: 'Харажатлар таркиби', rows: costBars(t.cost, t.bank, t.own, { chickens: 'Товуқ' }, SECTION_STEPS.eggs) },
     breakdown: {
       title: 'Фабрикалар тури',
       caption: 'лойиҳа қийматидаги улуши',
@@ -408,7 +424,10 @@ function eggsView(slide: number): SectionView {
 
 // ---------- Қайта ишлаш ----------
 
-const GROUP_ORDER: ProcessingGroup[] = ['slaughter', 'feedmill', 'transport', 'cold']
+const GROUP_ORDER: ProcessingGroup[] = ['slaughter', 'feedmill', 'transport', 'cold', 'power', 'other']
+
+/** How many units a group has (22 generators), for the chip next to its bar. */
+const unitCount = (group: ProcessingItem[]) => ({ fig: exact(sumOf(group, (i) => val(i.count)), group.map((i) => i.count.ref)), unit: 'та' })
 
 function processingView(slide: number): SectionView {
   const p = data.processing
@@ -420,6 +439,8 @@ function processingView(slide: number): SectionView {
   const feedPerHour = Number(feedmill?.name.match(/соатига (\d+) тн/)?.[1] ?? 0)
   const coldTonnes = Number(cold?.capacityText?.value?.match(/(\d+)/)?.[1] ?? 0)
   const countries = [...new Set(items.map((i) => i.country.value ?? '').filter(Boolean))]
+  const groups = GROUP_ORDER.filter((g) => items.some((i) => i.group === g))
+  const carries = [['Жўжа', 'жўжа'], ['Озуқа', 'озуқа'], ['гўшт', 'гўшт']].filter(([k]) => transport.some((i) => i.name.includes(k))).map(([, w]) => w)
   const totalCost = val(t.cost.total)
 
   const capacity = (i: (typeof items)[number]): TCell =>
@@ -444,7 +465,7 @@ function processingView(slide: number): SectionView {
       chip: 'сўйиш, ички органларни олиш ва совитиш',
     },
     stats: [
-      { label: 'Махсус автомобиллар', fig: exact(sumOf(transport, (i) => val(i.count)), transport.map((i) => i.count.ref)), unit: 'та', hint: 'жўжа, озуқа, гўшт' },
+      { label: 'Махсус автомобиллар', fig: exact(sumOf(transport, (i) => val(i.count)), transport.map((i) => i.count.ref)), unit: 'та', hint: carries.length ? `${carries.join(', ')} ташиш` : undefined },
       feedPerHour
         ? { label: 'Ем завод', fig: exact(feedPerHour, feedmill ? [feedmill.nameRef.ref] : []), unit: 'т / соат' }
         : { label: 'Ем завод', text: '—', unit: '' },
@@ -452,11 +473,11 @@ function processingView(slide: number): SectionView {
         ? { label: 'Музлаткич', fig: exact(coldTonnes, cold?.capacityText ? [cold.capacityText.ref] : []), unit: 'т' }
         : { label: 'Музлаткич', text: '—', unit: '' },
     ],
-    financing: financing(t.cost.total!, t.bank.total!, t.own.total!),
+    financing: financing(t.cost.total!, t.bank.total!, t.own.total!, SECTION_STEPS.processing),
     bars: {
       title: 'Маблағ йўналишлари',
       rows: barRows(
-        GROUP_ORDER.map((g) => {
+        groups.map((g) => {
           const group = items.filter((i) => i.group === g)
           const pick = (key: 'cost' | 'bank' | 'own') => group.map((i) => i[key].total!)
           return {
@@ -466,8 +487,11 @@ function processingView(slide: number): SectionView {
             bank: sumOf(pick('bank'), val),
             own: sumOf(pick('own'), val),
             src: { total: pick('cost').map((c) => c.ref), bank: pick('bank').map((c) => c.ref), own: pick('own').map((c) => c.ref) },
+            // The client asked to see the generator count on this slide and on Жами.
+            count: g === 'power' ? unitCount(group) : undefined,
           }
         }),
+        SECTION_STEPS.processing,
       ),
     },
     breakdown: {
@@ -500,7 +524,7 @@ function processingView(slide: number): SectionView {
         { label: 'Банк', unit: 'минг $' },
         { label: 'Ўз маблағи', unit: 'минг $' },
       ],
-      groups: GROUP_ORDER.map((g) => {
+      groups: groups.map((g) => {
         const group = items.filter((i) => i.group === g)
         return {
           key: g,
@@ -538,6 +562,37 @@ const sum = data.summary
 const sectionLabel: Record<SectionId, string> = { broiler: 'Бройлер', eggs: 'Тухум', processing: 'Қайта ишлаш' }
 const reserve = val(sum.feedReserve)
 
+// The client wants the generator on the Жами slide too, with its count. The sheet
+// books it as equipment (дастгох!H34), so it comes out of Дастгоҳ into a row of its
+// own and the cost rows still add up to the total.
+const power = data.processing.items.filter((i) => i.group === 'power')
+
+function summaryCosts(): BarRow[] {
+  type Fund = 'cost' | 'bank' | 'own'
+  const moved = (fund: Fund, k: MoneyKey) => sumOf(power, (i) => val(i[fund][k]))
+  const rows: BarInput[] = COST_KEYS.map((k) => {
+    const side = (fund: Fund) => ({
+      value: val(sum.total[fund][k]) - moved(fund, k),
+      src: [...ref(sum.total[fund][k]), ...(moved(fund, k) ? power.flatMap((i) => ref(i[fund][k]).map((r) => `− ${r}`)) : [])],
+    })
+    const [c, b, o] = [side('cost'), side('bank'), side('own')]
+    return { key: k, label: k === 'chickens' ? 'Жўжа / товуқ' : COST_LABEL[k], total: c.value, bank: b.value, own: o.value, src: { total: c.src, bank: b.src, own: o.src } }
+  })
+  if (power.length) {
+    const refs = (fund: Fund) => power.flatMap((i) => ref(i[fund].total))
+    rows.push({
+      key: 'power',
+      label: data.processing.groups.power,
+      total: moved('cost', 'total'),
+      bank: moved('bank', 'total'),
+      own: moved('own', 'total'),
+      src: { total: refs('cost'), bank: refs('bank'), own: refs('own') },
+      count: unitCount(power),
+    })
+  }
+  return barRows(rows)
+}
+
 export const SUMMARY = {
   financing: financing(sum.total.cost.total!, sum.total.bank.total!, sum.total.own.total!),
   bySection: barRows(
@@ -553,7 +608,7 @@ export const SUMMARY = {
       }
     }),
   ),
-  costs: costBars(sum.total.cost, sum.total.bank, sum.total.own, { chickens: 'Жўжа / товуқ' }),
+  costs: summaryCosts(),
   projectCredit: kusdToMln(val(sum.total.bank.total), ref(sum.total.bank.total)),
   feedReserve: kusdToMln(reserve, [sum.feedReserve.ref]),
   feedReserveLabel: sum.feedReserve.label,

@@ -65,7 +65,7 @@ export interface EggFacility extends Named {
   bank: Money
 }
 
-export type ProcessingGroup = 'slaughter' | 'feedmill' | 'transport' | 'cold'
+export type ProcessingGroup = 'slaughter' | 'feedmill' | 'transport' | 'cold' | 'power' | 'other'
 
 export interface ProcessingItem {
   row: number

@@ -5,9 +5,10 @@ import { formatNumber } from '../lib/format'
 /** True while the S key's "show sources" mode is on. */
 export const SourcesContext = createContext(false)
 
-/** Short label for the cells behind a figure: one cell, one sheet, or a sum across sheets. */
+/** Short label for the cells behind a figure: one cell, a difference («E15 − H34»), one sheet, or a sum across sheets. */
 function sourceLabel(refs: string[]) {
   if (refs.length === 1) return refs[0]
+  if (refs.some((r) => r.startsWith('− '))) return refs.join(' ')
   const split = refs.map((r) => r.split('!'))
   const sheets = [...new Set(split.map(([sheet]) => sheet))]
   const cells = [...new Set(split.map(([, cell]) => cell))]

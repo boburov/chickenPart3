@@ -6,10 +6,12 @@ import {
   Factory,
   Hammer,
   Landmark,
+  Package,
   Snowflake,
   Truck,
   Wallet,
   Wheat,
+  Zap,
   type LucideIcon,
 } from 'lucide-react'
 import type { SectionId } from '../data/deck'
@@ -33,7 +35,12 @@ export const GROUP_ICON: Record<ProcessingGroup, LucideIcon> = {
   feedmill: Wheat,
   transport: Truck,
   cold: Snowflake,
+  power: Zap,
+  other: Package,
 }
+
+/** A bar row's icon: a cost type (Қурилиш…) or a processing group (Генератор…). */
+export const barIcon = (key: string): LucideIcon | undefined => COST_ICON[key as CostKey] ?? GROUP_ICON[key as ProcessingGroup]
 
 export const FUNDS = {
   bank: { icon: Landmark, label: 'Банк кредити', color: 'var(--color-bank)' },

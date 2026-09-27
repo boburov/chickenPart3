@@ -159,7 +159,7 @@ function Value({ cell, strong = false }: { cell: TCell; strong?: boolean }) {
 /** A detail slide's table: exact numbers like the spreadsheet, units under each column name. */
 export function DataTable({ table }: { table: TableView }) {
   const lines = table.groups.reduce((a, g) => a + g.rows.length + (g.label ? 1 : 0), 0)
-  const pad = lines > 11 ? 'py-[7px]' : lines > 8 ? 'py-[13px]' : lines > 6 ? (table.note ? 'py-[15px]' : 'py-[18px]') : 'py-[24px]'
+  const pad = lines > 13 ? 'py-[6px]' : lines > 11 ? 'py-[7px]' : lines > 8 ? 'py-[13px]' : lines > 6 ? (table.note ? 'py-[15px]' : 'py-[18px]') : 'py-[24px]'
   const right = (i: number) => Boolean(table.columns[i]?.unit)
   return (
     <div data-anim="rise" className="glass-strong min-h-0 flex-1 self-start rounded-[24px] px-8 pt-5 pb-3">

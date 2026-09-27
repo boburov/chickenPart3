@@ -114,6 +114,7 @@ export interface BarRow {
   total: Fig
   share?: Fig
   exact: { total: number; bank: number; own: number }
+  count?: { fig: Fig; unit: string }
 }
 
 /**
@@ -138,6 +139,11 @@ export function StackedBars({ rows, labelWidth = 200, valueWidth = 190, rowGap =
                 </span>
               )}
               <span className="leading-tight">{row.label}</span>
+              {row.count && (
+                <span className="whitespace-nowrap rounded-full bg-mist px-2.5 py-1 text-[14px] font-[750] leading-none text-brand-deep">
+                  <Num fig={row.count.fig} animate={false} /> {row.count.unit}
+                </span>
+              )}
             </div>
 
             <div className="relative h-[22px]">

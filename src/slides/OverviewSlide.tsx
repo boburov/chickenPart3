@@ -1,12 +1,9 @@
 import { Cog, MapPin } from 'lucide-react'
 import { DECK, type SectionView, type Stat } from '../data/deck'
-import type { CostKey, ProcessingGroup } from '../data/types'
 import { Breakdown, Card, IconTile } from '../components/Blocks'
 import { Donut, FundsLegend, StackedBars } from '../components/Charts'
-import { COST_ICON, FUNDS, GROUP_ICON, SECTION_ICON } from '../components/icons'
+import { barIcon, FUNDS, SECTION_ICON } from '../components/icons'
 import { Num, Src } from '../components/Num'
-
-const barIcon = (key: string) => COST_ICON[key as CostKey] ?? GROUP_ICON[key as ProcessingGroup]
 
 function StatCard({ st }: { st: Stat }) {
   return (

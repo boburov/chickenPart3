@@ -68,25 +68,41 @@ EGG_NAMES = {
          _farm("Хўжаобод тумани", "5-фабрика — родитель (гўшт йўналиши)", "100 × 18 м", kind="parent")),
 }
 
-# Processing items, grouped for the slide (the grouping is ours; names are the sheet's).
-PROCESSING_ITEMS = {
-    10: ("Сўйиш цехини қувватини ошириш", "Сўйиш цехини қувватини ошириш", "slaughter"),
-    13: ("Товуқни ички органларини автомат олиш дастгохи", "Товуқни ички органларини автомат олиш дастгоҳи", "slaughter"),
-    16: ("Товуқ гўштини ҳаво линиясида совитиш дастгоҳи (Музлаткич)", "Товуқ гўштини ҳаво линиясида совитиш дастгоҳи", "slaughter"),
-    19: ("Ем заводни қувватини ошириш (соатига 20 тн)", "Ем заводни қувватини ошириш (соатига 20 тн)", "feedmill"),
-    22: ("Жўжа ташиш учун махсус транспорт автомобили", "Жўжа ташиш учун махсус автомобиль", "transport"),
-    25: ("Озуқа ташиш учун махсус транспорт ҳар бири 25тн", "Озуқа ташиш учун махсус автомобиль (ҳар бири 25 тн)", "transport"),
-    28: ("Ишлаб чиқариладиган гўшт махсулотлари учун махсус транспорт автомабили 10 тн",
-         "Гўшт маҳсулотлари учун махсус автомобиль (10 тн)", "transport"),
-    31: ("Музлаткич", "Музлаткич (1000 тн)", "cold"),
-    34: ("Товуқ гўштини ҳар хил турдаги қадоқлаш дастгоҳлари", "Товуқ гўштини ҳар хил турдаги қадоқлаш дастгоҳлари", "slaughter"),
-}
+# Processing items are recognised by name: their rows moved in the 27.09.2026 update.
+# The grouping is ours; the names are the sheet's (None keeps the sheet's text, spelling fixed).
+PROCESSING_RULES = [
+    ("совитиш", "slaughter", "Товуқ гўштини ҳаво линиясида совитиш дастгоҳи"),
+    ("Сўйиш цех", "slaughter", None),
+    ("ички орган", "slaughter", None),
+    ("қадоқлаш", "slaughter", None),
+    ("Ем завод", "feedmill", None),
+    ("Жўжа", "transport", "Жўжа ташиш учун махсус автомобиль"),
+    ("Озуқа ташиш", "transport", "Озуқа ташиш учун махсус автомобиль (8 × 25 т, 2 × 15 т)"),
+    ("гўшт махсулот", "transport", "Гўшт маҳсулотлари учун махсус автомобиль (10 тн)"),
+    ("Музлаткич", "cold", None),
+    ("Генератор", "power", "Генератор (движок)"),
+]
 PROCESSING_GROUPS = {
     "slaughter": "Сўйиш, совитиш ва қадоқлаш",
     "feedmill": "Ем завод",
     "transport": "Махсус транспорт",
     "cold": "Музлаткич",
+    "power": "Генератор",
+    "other": "Бошқа",
 }
+
+
+# Counts the sheet leaves empty but the client gave in chat, by item group.
+CLIENT_COUNTS = {"power": (22, "мижоз маълумоти, 27.09.2026")}
+
+
+def classify(raw):
+    """(group, name on the slide) for a processing item's sheet name."""
+    for key, group, name in PROCESSING_RULES:
+        if key in raw:
+            return group, name or fix_words(raw)
+    return "other", fix_words(raw)
+
 
 SUPPLIERS = {"Е-Фарминг Хитой": "Е-Фарминг, Хитой", "мавжуд": "мавжуд"}
 
@@ -105,7 +121,7 @@ STATIC_FLAGS = [
     {"level": "total", "refs": sorted(HIDDEN),
      "text": "броллер!D7 and тухум1!D7 add up «birds per building»; дастгох!C7 mixes buildings and vehicles and skips rows; дастгох!D7 adds three machines of the same 6 000 birds/hour line.",
      "resolution": "Not shown. The slaughter line is shown as 6 000 birds per hour (дастгох!D10)."},
-    {"level": "text", "refs": ["дастгох!D31"],
+    {"level": "text", "refs": ["дастгох!D28"],
      "text": "«1000 тн» typed as text in the birds-per-hour column; it is the cold store's size.",
      "resolution": "Shown as the cold store's capacity, 1 000 т."},
     {"level": "total", "refs": ["броллер!I22", "броллер!I23", "броллер!I24"],
@@ -117,9 +133,6 @@ STATIC_FLAGS = [
     {"level": "question", "refs": ["броллер!B25", "броллер!J25", "броллер!K25"],
      "text": "Асака 4-фабрика: no construction cost but new equipment (9 × 150), chicks and feed. The sheet doesn't mark it «мавжуд».",
      "resolution": "Treated as a project (re-equipment); its 8 100 т is counted as new output. Change EXISTING_OVERRIDES in extract.py if it already produces."},
-    {"level": "minor", "refs": ["жами лойиха!C22"],
-     "text": "Formula adds a typed 5000 instead of pointing to the feed-reserve cell C20.",
-     "resolution": "Same value; the slides use C20."},
     {"level": "minor", "refs": ["тухум1!F19", "броллер!J10", "броллер!K27", "дастгох!A26:A27", "броллер!B28"],
      "text": "F19 is =-G19 (gives 0); J10 is =+J11++J12; K27 is =9*150; дастгох rows 26–27 are numbered 4.1/4.2; a stray «Жами» in броллер!B28.",
      "resolution": "No effect on any number."},
@@ -155,9 +168,14 @@ class Book:
     def __init__(self, path):
         self.f = openpyxl.load_workbook(path, data_only=False)
         self.v = openpyxl.load_workbook(path, data_only=True)
+        self.fixed = {}  # "sheet!cell" -> value replacing a total that isn't the sum of its parts
+        self.notes = {}
 
     def raw(self, sheet, cell):
         return self.v[sheet][cell].value
+
+    def val(self, sheet, cell):
+        return self.fixed.get(f"{sheet}!{cell}", self.raw(sheet, cell))
 
     def formula(self, sheet, cell):
         raw = self.f[sheet][cell].value
@@ -165,9 +183,12 @@ class Book:
 
     def num(self, sheet, cell, **extra):
         ref = f"{sheet}!{cell}"
-        item = {"value": self.raw(sheet, cell), "ref": ref}
+        item = {"value": self.val(sheet, cell), "ref": ref}
         if self.formula(sheet, cell):
             item["formula"] = self.formula(sheet, cell)
+        if ref in self.fixed:
+            item["sheetValue"] = self.raw(sheet, cell)
+            item["note"] = self.notes[ref]
         if ref in HIDDEN:
             item["hidden"] = True
         item.update({k: v for k, v in extra.items() if v is not None})
@@ -186,7 +207,7 @@ class Book:
         return {key: (self.num(sheet, f"{col}{row}") if col else None) for key, col in cols.items()}
 
     def sum_rows(self, sheet, col, rows):
-        return sum(self.raw(sheet, f"{col}{r}") or 0 for r in rows)
+        return sum(self.val(sheet, f"{col}{r}") or 0 for r in rows)
 
 
 def check_formulas(book):
@@ -211,21 +232,43 @@ def check_formulas(book):
     return lines, problems
 
 
+def fix_totals(book, sheet, rows, sub_rows):
+    """Every money row's total must be the sum of its parts (I = J+K+L+M, or F = G+H).
+    A total that isn't (typed over, or a formula that skips a row) is replaced and flagged."""
+    cols = MONEY_COLS[sheet]
+    parts = [c for k, c in cols.items() if k != "total" and c]
+    fixed = []
+    # items first, then the section rows 7–9, so a fixed item feeds its section total
+    for r in [b + o for b in rows for o in (1, 2, 0) if b in sub_rows or o == 0] + [8, 9, 7]:
+        cell = f"{cols['total']}{r}"
+        want = round(sum(book.val(sheet, f"{c}{r}") or 0 for c in parts), 6)
+        have = book.val(sheet, cell) or 0
+        if abs(have - want) > 1e-9:
+            book.fixed[f"{sheet}!{cell}"] = want
+            book.notes[f"{sheet}!{cell}"] = f"Sheet has {fmt(have)}; the parts ({'+'.join(parts)}) add up to {fmt(want)}"
+            fixed.append((cell, have, want))
+    if not fixed:
+        return None
+    return {"level": "error", "refs": [f"{sheet}!{c}" for c, _, _ in fixed],
+            "text": "Totals that aren't the sum of their parts: " + "; ".join(f"{c} = {fmt(h)} but the parts give {fmt(w)}" for c, h, w in fixed) + ".",
+            "resolution": "Using the sum of the parts."}
+
+
 def check_money(book, sheet, rows, sub_rows):
     """Own + bank = facility, and every row's total = its parts."""
     cols = MONEY_COLS[sheet]
     parts = [c for k, c in cols.items() if k != "total" and c]
     bad = []
     for r in [7, 8, 9] + [b + o for b in rows for o in (0, 1, 2) if b in sub_rows or o == 0]:
-        if (book.raw(sheet, f"{cols['total']}{r}") or 0) != sum(book.raw(sheet, f"{c}{r}") or 0 for c in parts):
+        if (book.val(sheet, f"{cols['total']}{r}") or 0) != sum(book.val(sheet, f"{c}{r}") or 0 for c in parts):
             bad.append(f"row {r}: total ≠ parts")
     for c in [cols["total"], *parts]:
         for b in sub_rows:
-            if (book.raw(sheet, f"{c}{b}") or 0) != (book.raw(sheet, f"{c}{b + 1}") or 0) + (book.raw(sheet, f"{c}{b + 2}") or 0):
+            if (book.val(sheet, f"{c}{b}") or 0) != (book.val(sheet, f"{c}{b + 1}") or 0) + (book.val(sheet, f"{c}{b + 2}") or 0):
                 bad.append(f"{c}{b} ≠ own + bank")
         for total_row, offset in ((7, 0), (8, 1), (9, 2)):
-            want = sum(book.raw(sheet, f"{c}{b + offset}") or 0 for b in (rows if offset == 0 else sub_rows))
-            if (book.raw(sheet, f"{c}{total_row}") or 0) != want:
+            want = sum(book.val(sheet, f"{c}{b + offset}") or 0 for b in (rows if offset == 0 else sub_rows))
+            if (book.val(sheet, f"{c}{total_row}") or 0) != want:
                 bad.append(f"{c}{total_row} ≠ sum of rows")
     return bad
 
@@ -357,18 +400,18 @@ def processing(book, warnings):
     s = "дастгох"
     items = []
     for r in PROCESSING_ROWS:
-        expected, shown, group = PROCESSING_ITEMS[r]
-        raw = norm(book.raw(s, f"B{r}"))
-        if raw != expected:
-            warnings.append(f"{s}!B{r} text changed in the sheet; showing the sheet text.")
-            shown = fix_words(raw)
+        group, shown = classify(norm(book.raw(s, f"B{r}")))
+        if group == "other":
+            warnings.append(f"{s}!B{r} «{norm(book.raw(s, f'B{r}'))}» is a new kind of item; shown under «Бошқа».")
         capacity = book.raw(s, f"D{r}")
         items.append({
             "row": r,
             "name": shown,
             "nameRef": book.text(s, f"B{r}", shown),
             "group": group,
-            "count": book.num(s, f"C{r}"),
+            "count": (book.num(s, f"C{r}") if book.raw(s, f"C{r}") is not None or group not in CLIENT_COUNTS
+                      else {"value": CLIENT_COUNTS[group][0], "ref": CLIENT_COUNTS[group][1],
+                            "note": f"{s}!C{r} is empty; count given by the client"}),
             "perHour": book.num(s, f"D{r}") if isinstance(capacity, (int, float)) else None,
             "capacityText": book.text(s, f"D{r}", norm(capacity)) if isinstance(capacity, str) else None,
             "country": book.text(s, f"E{r}"),
@@ -403,7 +446,8 @@ def summary(book, sections, checks):
                 if item is not None and mine is not None and (item["value"] or 0) != (mine["value"] or 0):
                     mismatches.append(f"{mine['ref']} ≠ {item['ref']}")
     out["total"] = {"label": book.text(s, "B15"), "cost": book.money(s, 15), "own": book.money(s, 16), "bank": book.money(s, 17)}
-    out["feedReserve"] = {**book.num(s, "C20"), "label": book.text(s, "B19")["value"], "labelRef": f"{s}!B19"}
+    reserve_row = next(r for r in range(15, 40) if norm(book.raw(s, f"B{r}") or "").startswith("Озуқа заҳираси"))
+    out["feedReserve"] = {**book.num(s, f"C{reserve_row}"), "label": book.text(s, f"B{reserve_row}")["value"], "labelRef": f"{s}!B{reserve_row}"}
     out["totalCredit"] = book.num(s, "C22")
     out["totalCredit"]["label"] = book.text(s, "B22")["value"]
     checks.append(f"`{s}`: every section row matches its sheet's totals" + (": FAIL — " + "; ".join(mismatches) if mismatches else "."))
@@ -511,7 +555,7 @@ def write_markdown(data, checks, warnings):
         f"| 15 | **{t['label']['value']}** | " + " | ".join(cell_md(t["cost"][k]) for k in MONEY_KEYS) + " |",
         "| 16 | ↳ ўз маблағи | " + " | ".join(cell_md(t["own"][k]) for k in MONEY_KEYS) + " |",
         "| 17 | ↳ банк кредити | " + " | ".join(cell_md(t["bank"][k]) for k in MONEY_KEYS) + " |",
-        f"| 20 | {s['feedReserve']['label']} | {cell_md(s['feedReserve'])} | | | | |",
+        f"| {s['feedReserve']['ref'].split('!C')[1]} | {s['feedReserve']['label']} | {cell_md(s['feedReserve'])} | | | | |",
         f"| 22 | **{s['totalCredit']['label']}** | {cell_md(s['totalCredit'])} | | | | |",
         "",
     ]
@@ -531,11 +575,15 @@ def main():
     checks, problems = check_formulas(book)
     if problems:
         sys.exit("Saved values don't match the formulas. Open the file in Excel, save it, and run again:\n" + "\n".join(problems))
-    for sheet, rows, subs in (("броллер", BROILER_ROWS, [10, 13, 16, 19, 25]), ("тухум1", EGG_ROWS, EGG_ROWS), ("дастгох", PROCESSING_ROWS, PROCESSING_ROWS)):
-        bad = check_money(book, sheet, rows, subs)
-        checks.append(f"`{sheet}`: own + bank = total, parts = total, rows = sheet totals: " + ("all pass." if not bad else "FAIL — " + "; ".join(bad)))
-
     flags, warnings = [], []
+    for sheet, rows, subs in (("броллер", BROILER_ROWS, [10, 13, 16, 19, 25]), ("тухум1", EGG_ROWS, EGG_ROWS), ("дастгох", PROCESSING_ROWS, PROCESSING_ROWS)):
+        fix = fix_totals(book, sheet, rows, subs)
+        if fix:
+            flags.append(fix)
+        bad = check_money(book, sheet, rows, subs)
+        after = f" (after fixing {', '.join(r.split('!')[1] for r in fix['refs'])})" if fix else ""
+        checks.append(f"`{sheet}`: own + bank = total, parts = total, rows = sheet totals{after}: " + ("all pass." if not bad else "FAIL — " + "; ".join(bad)))
+
     sections = {"broiler": broiler(book, flags, warnings), "eggs": eggs(book, flags, warnings), "processing": processing(book, warnings)}
     data = {
         "meta": {
@@ -548,7 +596,11 @@ def main():
         **sections,
         "summary": summary(book, sections, checks),
     }
-    data["flags"] = flags + STATIC_FLAGS
+    data["flags"] = flags + STATIC_FLAGS + [
+        {"level": "client", "refs": [it["count"]["ref"] for it in data["processing"]["items"] if it["group"] in CLIENT_COUNTS],
+         "text": "The generator row has no count in the sheet (C is empty); the client gave 22 on 27.09.2026.",
+         "resolution": "Shown as 22 та with the source «мижоз маълумоти»."}
+    ]
     OUT_JSON.parent.mkdir(parents=True, exist_ok=True)
     OUT_JSON.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     write_markdown(data, checks, warnings)

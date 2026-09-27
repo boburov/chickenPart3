@@ -1,8 +1,8 @@
 {
   "meta": {
     "source": "data/Смета БХП.xlsx",
-    "sha256": "ab1e67aa9dfa110682acc3207ee0b190ee784f944007a93323e10e3e4a0f26b8",
-    "extractedAt": "2026-09-27T21:44:07",
+    "sha256": "549a9f197fd17666d55bdda5f3d28b1e05a1dfe0842f94acdf0bf85f74391772",
+    "extractedAt": "2026-09-27T22:12:40",
     "company": "Барака Ҳамкор Парранда",
     "year": "2026"
   },
@@ -64,17 +64,17 @@
       },
       "cost": {
         "total": {
-          "value": 21190,
+          "value": 22455,
           "ref": "броллер!I7",
           "formula": "=+I10+I13+I16+I19+I22+I24+I23+I25"
         },
         "construction": {
-          "value": 6950,
+          "value": 7780,
           "ref": "броллер!J7",
           "formula": "=+J10+J13+J16+J19+J22+J23+J24+J25"
         },
         "equipment": {
-          "value": 7150,
+          "value": 7585,
           "ref": "броллер!K7",
           "formula": "=+K10+K13+K16+K19+K22+K23+K24+K25"
         },
@@ -91,12 +91,12 @@
       },
       "own": {
         "total": {
-          "value": 9490,
+          "value": 10320,
           "ref": "броллер!I8",
           "formula": "=+I11+I14+I17+I20+I26"
         },
         "construction": {
-          "value": 2400,
+          "value": 3230,
           "ref": "броллер!J8",
           "formula": "=+J11+J14+J17+J20+J26"
         },
@@ -118,7 +118,7 @@
       },
       "bank": {
         "total": {
-          "value": 11700,
+          "value": 12135,
           "ref": "броллер!I9",
           "formula": "=+I12+I15+I18+I21+I27"
         },
@@ -128,7 +128,7 @@
           "formula": "=+J12+J15+J18+J21+J27"
         },
         "equipment": {
-          "value": 7150,
+          "value": 7585,
           "ref": "броллер!K9",
           "formula": "=+K12+K15+K18+K21+K27"
         },
@@ -210,17 +210,17 @@
         },
         "cost": {
           "total": {
-            "value": 4500,
+            "value": 4805,
             "ref": "броллер!I10",
             "formula": "=+J10+K10+L10+M10"
           },
           "construction": {
-            "value": 1700,
+            "value": 1900,
             "ref": "броллер!J10",
             "formula": "=+J11++J12"
           },
           "equipment": {
-            "value": 1400,
+            "value": 1505,
             "ref": "броллер!K10",
             "formula": "=+K11+K12"
           },
@@ -237,12 +237,12 @@
         },
         "own": {
           "total": {
-            "value": 2000,
+            "value": 2200,
             "ref": "броллер!I11",
             "formula": "=+J11+K11+L11+M11"
           },
           "construction": {
-            "value": 600,
+            "value": 800,
             "ref": "броллер!J11"
           },
           "equipment": {
@@ -260,7 +260,7 @@
         },
         "bank": {
           "total": {
-            "value": 2500,
+            "value": 2605,
             "ref": "броллер!I12",
             "formula": "=+J12+K12"
           },
@@ -269,7 +269,7 @@
             "ref": "броллер!J12"
           },
           "equipment": {
-            "value": 1400,
+            "value": 1505,
             "ref": "броллер!K12"
           },
           "chickens": {
@@ -323,17 +323,17 @@
         },
         "cost": {
           "total": {
-            "value": 5050,
+            "value": 5400,
             "ref": "броллер!I13",
             "formula": "=+J13+K13+L13+M13"
           },
           "construction": {
-            "value": 1850,
+            "value": 2080,
             "ref": "броллер!J13",
             "formula": "=+J14+J15"
           },
           "equipment": {
-            "value": 1600,
+            "value": 1720,
             "ref": "броллер!K13",
             "formula": "=+K14+K15"
           },
@@ -350,12 +350,12 @@
         },
         "own": {
           "total": {
-            "value": 2200,
+            "value": 2430,
             "ref": "броллер!I14",
             "formula": "=+J14+K14+L14+M14"
           },
           "construction": {
-            "value": 600,
+            "value": 830,
             "ref": "броллер!J14"
           },
           "equipment": {
@@ -373,7 +373,7 @@
         },
         "bank": {
           "total": {
-            "value": 2850,
+            "value": 2970,
             "ref": "броллер!I15",
             "formula": "=+J15+K15+L15+M15"
           },
@@ -382,7 +382,7 @@
             "ref": "броллер!J15"
           },
           "equipment": {
-            "value": 1600,
+            "value": 1720,
             "ref": "броллер!K15"
           },
           "chickens": {
@@ -436,17 +436,17 @@
         },
         "cost": {
           "total": {
-            "value": 4500,
+            "value": 4805,
             "ref": "броллер!I16",
             "formula": "=+I17+I18"
           },
           "construction": {
-            "value": 1700,
+            "value": 1900,
             "ref": "броллер!J16",
             "formula": "=+J17+J18"
           },
           "equipment": {
-            "value": 1400,
+            "value": 1505,
             "ref": "броллер!K16",
             "formula": "=+K17+K18"
           },
@@ -463,12 +463,12 @@
         },
         "own": {
           "total": {
-            "value": 2000,
+            "value": 2200,
             "ref": "броллер!I17",
             "formula": "=+J17+K17+L17+M17"
           },
           "construction": {
-            "value": 600,
+            "value": 800,
             "ref": "броллер!J17"
           },
           "equipment": {
@@ -486,7 +486,7 @@
         },
         "bank": {
           "total": {
-            "value": 2500,
+            "value": 2605,
             "ref": "броллер!I18",
             "formula": "=+J18+K18"
           },
@@ -495,7 +495,7 @@
             "ref": "броллер!J18"
           },
           "equipment": {
-            "value": 1400,
+            "value": 1505,
             "ref": "броллер!K18"
           },
           "chickens": {
@@ -549,17 +549,17 @@
         },
         "cost": {
           "total": {
-            "value": 4500,
+            "value": 4805,
             "ref": "броллер!I19",
             "formula": "=+I20+I21"
           },
           "construction": {
-            "value": 1700,
+            "value": 1900,
             "ref": "броллер!J19",
             "formula": "=+J21+J20"
           },
           "equipment": {
-            "value": 1400,
+            "value": 1505,
             "ref": "броллер!K19",
             "formula": "=+K21+K20"
           },
@@ -576,12 +576,12 @@
         },
         "own": {
           "total": {
-            "value": 2000,
+            "value": 2200,
             "ref": "броллер!I20",
             "formula": "=+J20+K20+L20+M20"
           },
           "construction": {
-            "value": 600,
+            "value": 800,
             "ref": "броллер!J20"
           },
           "equipment": {
@@ -599,7 +599,7 @@
         },
         "bank": {
           "total": {
-            "value": 2500,
+            "value": 2605,
             "ref": "броллер!I21",
             "formula": "=+J21+K21"
           },
@@ -608,7 +608,7 @@
             "ref": "броллер!J21"
           },
           "equipment": {
-            "value": 1400,
+            "value": 1505,
             "ref": "броллер!K21"
           },
           "chickens": {
@@ -925,17 +925,17 @@
       },
       "cost": {
         "total": {
-          "value": 18030,
+          "value": 19609,
           "ref": "тухум1!I7",
           "formula": "=+I10+I13+I16+I19+I22"
         },
         "construction": {
-          "value": 2600,
+          "value": 4000,
           "ref": "тухум1!J7",
           "formula": "=+J10+J13+J16+J19+J22"
         },
         "equipment": {
-          "value": 7310,
+          "value": 7489,
           "ref": "тухум1!K7",
           "formula": "=+K10+K13+K16+K19+K22"
         },
@@ -952,12 +952,12 @@
       },
       "own": {
         "total": {
-          "value": 2890,
+          "value": 4290,
           "ref": "тухум1!I8",
           "formula": "=+J8+K8+L8+M8"
         },
         "construction": {
-          "value": 0,
+          "value": 1400,
           "ref": "тухум1!J8",
           "formula": "=+J11+J14+J17+J20+J23"
         },
@@ -979,7 +979,7 @@
       },
       "bank": {
         "total": {
-          "value": 15140,
+          "value": 15319,
           "ref": "тухум1!I9",
           "formula": "=+J9+K9+L9+M9"
         },
@@ -989,7 +989,7 @@
           "formula": "=+J12+J15+J18+J21+J24"
         },
         "equipment": {
-          "value": 4910,
+          "value": 5089,
           "ref": "тухум1!K9",
           "formula": "=+K12+K15+K18+K21+K24"
         },
@@ -1046,17 +1046,17 @@
         },
         "cost": {
           "total": {
-            "value": 4450,
+            "value": 4827.5,
             "ref": "тухум1!I10",
             "formula": "=+J10+K10+L10+M10"
           },
           "construction": {
-            "value": 500,
+            "value": 800,
             "ref": "тухум1!J10",
             "formula": "=+J11+J12"
           },
           "equipment": {
-            "value": 1700,
+            "value": 1777.5,
             "ref": "тухум1!K10",
             "formula": "=+K11+K12"
           },
@@ -1073,12 +1073,12 @@
         },
         "own": {
           "total": {
-            "value": 0,
+            "value": 300,
             "ref": "тухум1!I11",
             "formula": "=+J11+K11+L11+M11"
           },
           "construction": {
-            "value": null,
+            "value": 300,
             "ref": "тухум1!J11"
           },
           "equipment": {
@@ -1096,7 +1096,7 @@
         },
         "bank": {
           "total": {
-            "value": 4450,
+            "value": 4527.5,
             "ref": "тухум1!I12",
             "formula": "=+J12+K12+L12+M12"
           },
@@ -1105,7 +1105,7 @@
             "ref": "тухум1!J12"
           },
           "equipment": {
-            "value": 1700,
+            "value": 1777.5,
             "ref": "тухум1!K12"
           },
           "chickens": {
@@ -1158,17 +1158,17 @@
         },
         "cost": {
           "total": {
-            "value": 4450,
+            "value": 4827.5,
             "ref": "тухум1!I13",
             "formula": "=+J13+K13+L13+M13"
           },
           "construction": {
-            "value": 500,
+            "value": 800,
             "ref": "тухум1!J13",
             "formula": "=+J14+J15"
           },
           "equipment": {
-            "value": 1700,
+            "value": 1777.5,
             "ref": "тухум1!K13",
             "formula": "=+K14+K15"
           },
@@ -1185,12 +1185,12 @@
         },
         "own": {
           "total": {
-            "value": 0,
+            "value": 300,
             "ref": "тухум1!I14",
             "formula": "=+J14+K14+L14+M14"
           },
           "construction": {
-            "value": null,
+            "value": 300,
             "ref": "тухум1!J14"
           },
           "equipment": {
@@ -1208,7 +1208,7 @@
         },
         "bank": {
           "total": {
-            "value": 4450,
+            "value": 4527.5,
             "ref": "тухум1!I15",
             "formula": "=+J15+K15+L15+M15"
           },
@@ -1217,7 +1217,7 @@
             "ref": "тухум1!J15"
           },
           "equipment": {
-            "value": 1700,
+            "value": 1777.5,
             "ref": "тухум1!K15"
           },
           "chickens": {
@@ -1270,12 +1270,12 @@
         },
         "cost": {
           "total": {
-            "value": 4850,
+            "value": 5250,
             "ref": "тухум1!I16",
             "formula": "=+J16+K16+L16+M16"
           },
           "construction": {
-            "value": 800,
+            "value": 1200,
             "ref": "тухум1!J16",
             "formula": "=+J17+J18"
           },
@@ -1297,12 +1297,12 @@
         },
         "own": {
           "total": {
-            "value": 1800,
+            "value": 2200,
             "ref": "тухум1!I17",
             "formula": "=+J17+K17+L17+M17"
           },
           "construction": {
-            "value": null,
+            "value": 400,
             "ref": "тухум1!J17"
           },
           "equipment": {
@@ -1382,17 +1382,17 @@
         },
         "cost": {
           "total": {
-            "value": 2350,
+            "value": 2774,
             "ref": "тухум1!I19",
             "formula": "=+J19+K19+L19+M19"
           },
           "construction": {
-            "value": 800,
+            "value": 1200,
             "ref": "тухум1!J19",
             "formula": "=+J20+J21"
           },
           "equipment": {
-            "value": 1550,
+            "value": 1574,
             "ref": "тухум1!K19",
             "formula": "=+K20+K21"
           },
@@ -1409,12 +1409,12 @@
         },
         "own": {
           "total": {
-            "value": 600,
+            "value": 1000,
             "ref": "тухум1!I20",
             "formula": "=+J20+K20+L20+M20"
           },
           "construction": {
-            "value": null,
+            "value": 400,
             "ref": "тухум1!J20"
           },
           "equipment": {
@@ -1432,7 +1432,7 @@
         },
         "bank": {
           "total": {
-            "value": 1750,
+            "value": 1774,
             "ref": "тухум1!I21",
             "formula": "=+J21+K21+L21+M21"
           },
@@ -1441,7 +1441,7 @@
             "ref": "тухум1!J21"
           },
           "equipment": {
-            "value": 950,
+            "value": 974,
             "ref": "тухум1!K21"
           },
           "chickens": {
@@ -1581,7 +1581,9 @@
       "slaughter": "Сўйиш, совитиш ва қадоқлаш",
       "feedmill": "Ем завод",
       "transport": "Махсус транспорт",
-      "cold": "Музлаткич"
+      "cold": "Музлаткич",
+      "power": "Генератор",
+      "other": "Бошқа"
     },
     "lineCapacity": {
       "value": 6000,
@@ -1607,17 +1609,17 @@
       },
       "cost": {
         "total": {
-          "value": 4610,
+          "value": 5777.2,
           "ref": "дастгох!F7",
           "formula": "=+G7+H7"
         },
         "construction": {
-          "value": 400,
+          "value": 600,
           "ref": "дастгох!G7",
-          "formula": "=+G10+G13+G16+G19+G22+G25+G28+G31+G34"
+          "formula": "=+G10+G13+G16+G19+G22+G25+G28+G31"
         },
         "equipment": {
-          "value": 4210,
+          "value": 5177.2,
           "ref": "дастгох!H7",
           "formula": "=+H10+H13+H16+H19+H22+H25+H28+H31+H34"
         },
@@ -1626,12 +1628,12 @@
       },
       "own": {
         "total": {
-          "value": 400,
+          "value": 600,
           "ref": "дастгох!F8",
-          "formula": "=+F11+F14+F17+F20+F23+F26+F29+F32+F35"
+          "formula": "=+F11+F14+F17+F20+F23+F26+F29+F32"
         },
         "construction": {
-          "value": 400,
+          "value": 600,
           "ref": "дастгох!G8",
           "formula": "=+G11+G14+G17+G20+G23+G26+G29+G32+G35"
         },
@@ -1645,9 +1647,11 @@
       },
       "bank": {
         "total": {
-          "value": 4210,
+          "value": 5177.2,
           "ref": "дастгох!F9",
-          "formula": "=+F12+F15+F18+F21+F24+F27+F30+F33+F36"
+          "formula": "=+F12+F15+F18+F21+F24+F27+F30+F33",
+          "sheetValue": 4795,
+          "note": "Sheet has 4 795; the parts (G+H) add up to 5 177.2"
         },
         "construction": {
           "value": 0,
@@ -1655,7 +1659,7 @@
           "formula": "=+G12+G15+G18+G21+G24+G27+G30+G33+G36"
         },
         "equipment": {
-          "value": 4210,
+          "value": 5177.2,
           "ref": "дастгох!H9",
           "formula": "=+H12+H15+H18+H21+H24+H27+H30+H33+H36"
         },
@@ -1912,17 +1916,17 @@
         },
         "cost": {
           "total": {
-            "value": 600,
+            "value": 2300,
             "ref": "дастгох!F19",
             "formula": "=+G19+H19"
           },
           "construction": {
-            "value": 100,
+            "value": 300,
             "ref": "дастгох!G19",
             "formula": "=+G20+G21"
           },
           "equipment": {
-            "value": 500,
+            "value": 2000,
             "ref": "дастгох!H19",
             "formula": "=+H20+H21"
           },
@@ -1931,12 +1935,12 @@
         },
         "own": {
           "total": {
-            "value": 100,
+            "value": 300,
             "ref": "дастгох!F20",
             "formula": "=+G20+H20"
           },
           "construction": {
-            "value": 100,
+            "value": 300,
             "ref": "дастгох!G20"
           },
           "equipment": {
@@ -1948,7 +1952,7 @@
         },
         "bank": {
           "total": {
-            "value": 500,
+            "value": 2000,
             "ref": "дастгох!F21",
             "formula": "=+G21+H21"
           },
@@ -1957,7 +1961,7 @@
             "ref": "дастгох!G21"
           },
           "equipment": {
-            "value": 500,
+            "value": 2000,
             "ref": "дастгох!H21"
           },
           "chickens": null,
@@ -2039,15 +2043,15 @@
       },
       {
         "row": 25,
-        "name": "Озуқа ташиш учун махсус автомобиль (ҳар бири 25 тн)",
+        "name": "Озуқа ташиш учун махсус автомобиль (8 × 25 т, 2 × 15 т)",
         "nameRef": {
-          "value": "Озуқа ташиш учун махсус автомобиль (ҳар бири 25 тн)",
+          "value": "Озуқа ташиш учун махсус автомобиль (8 × 25 т, 2 × 15 т)",
           "ref": "дастгох!B25",
-          "sheetText": "Озуқа ташиш учун махсус транспорт ҳар бири 25тн"
+          "sheetText": "Озуқа ташиш учун махсус транспорт ҳар бири 25тн дан 8 дона ва 15 тн 2 дона"
         },
         "group": "transport",
         "count": {
-          "value": 8,
+          "value": 10,
           "ref": "дастгох!C25"
         },
         "perHour": null,
@@ -2058,7 +2062,7 @@
         },
         "cost": {
           "total": {
-            "value": 560,
+            "value": 345,
             "ref": "дастгох!F25",
             "formula": "=+G25+H25"
           },
@@ -2068,7 +2072,7 @@
             "formula": "=+G26+G27"
           },
           "equipment": {
-            "value": 560,
+            "value": 345,
             "ref": "дастгох!H25",
             "formula": "=+H26+H27"
           },
@@ -2094,16 +2098,15 @@
         },
         "bank": {
           "total": {
-            "value": 560,
-            "ref": "дастгох!F27",
-            "formula": "=+G27+H27"
+            "value": 345,
+            "ref": "дастгох!F27"
           },
           "construction": {
             "value": null,
             "ref": "дастгох!G27"
           },
           "equipment": {
-            "value": 560,
+            "value": 345,
             "ref": "дастгох!H27"
           },
           "chickens": null,
@@ -2112,26 +2115,28 @@
       },
       {
         "row": 28,
-        "name": "Гўшт маҳсулотлари учун махсус автомобиль (10 тн)",
+        "name": "Музлаткич",
         "nameRef": {
-          "value": "Гўшт маҳсулотлари учун махсус автомобиль (10 тн)",
-          "ref": "дастгох!B28",
-          "sheetText": "Ишлаб чиқариладиган гўшт махсулотлари учун махсус транспорт автомабили 10 тн"
+          "value": "Музлаткич",
+          "ref": "дастгох!B28"
         },
-        "group": "transport",
+        "group": "cold",
         "count": {
-          "value": 10,
+          "value": 1,
           "ref": "дастгох!C28"
         },
         "perHour": null,
-        "capacityText": null,
+        "capacityText": {
+          "value": "1000 тн",
+          "ref": "дастгох!D28"
+        },
         "country": {
           "value": "Хитой",
           "ref": "дастгох!E28"
         },
         "cost": {
           "total": {
-            "value": 600,
+            "value": 350,
             "ref": "дастгох!F28",
             "formula": "=+G28+H28"
           },
@@ -2141,7 +2146,7 @@
             "formula": "=+G29+G30"
           },
           "equipment": {
-            "value": 600,
+            "value": 350,
             "ref": "дастгох!H28",
             "formula": "=+H29+H30"
           },
@@ -2155,7 +2160,7 @@
             "formula": "=+G29+H29"
           },
           "construction": {
-            "value": 0,
+            "value": null,
             "ref": "дастгох!G29"
           },
           "equipment": {
@@ -2167,7 +2172,7 @@
         },
         "bank": {
           "total": {
-            "value": 600,
+            "value": 350,
             "ref": "дастгох!F30",
             "formula": "=+G30+H30"
           },
@@ -2176,7 +2181,7 @@
             "ref": "дастгох!G30"
           },
           "equipment": {
-            "value": 600,
+            "value": 350,
             "ref": "дастгох!H30"
           },
           "chickens": null,
@@ -2185,29 +2190,26 @@
       },
       {
         "row": 31,
-        "name": "Музлаткич (1000 тн)",
+        "name": "Товуқ гўштини ҳар хил турдаги қадоқлаш дастгоҳлари",
         "nameRef": {
-          "value": "Музлаткич (1000 тн)",
+          "value": "Товуқ гўштини ҳар хил турдаги қадоқлаш дастгоҳлари",
           "ref": "дастгох!B31",
-          "sheetText": "Музлаткич"
+          "sheetText": "Товуқ гўштини ҳар хил турдаги  қадоқлаш дастгоҳлари"
         },
-        "group": "cold",
+        "group": "slaughter",
         "count": {
-          "value": 1,
+          "value": null,
           "ref": "дастгох!C31"
         },
         "perHour": null,
-        "capacityText": {
-          "value": "1000 тн",
-          "ref": "дастгох!D31"
-        },
+        "capacityText": null,
         "country": {
           "value": "Хитой",
           "ref": "дастгох!E31"
         },
         "cost": {
           "total": {
-            "value": 350,
+            "value": 200,
             "ref": "дастгох!F31",
             "formula": "=+G31+H31"
           },
@@ -2217,7 +2219,7 @@
             "formula": "=+G32+G33"
           },
           "equipment": {
-            "value": 350,
+            "value": 200,
             "ref": "дастгох!H31",
             "formula": "=+H32+H33"
           },
@@ -2243,16 +2245,15 @@
         },
         "bank": {
           "total": {
-            "value": 350,
-            "ref": "дастгох!F33",
-            "formula": "=+G33+H33"
+            "value": 200,
+            "ref": "дастгох!F33"
           },
           "construction": {
             "value": 0,
             "ref": "дастгох!G33"
           },
           "equipment": {
-            "value": 350,
+            "value": 200,
             "ref": "дастгох!H33"
           },
           "chickens": null,
@@ -2261,16 +2262,17 @@
       },
       {
         "row": 34,
-        "name": "Товуқ гўштини ҳар хил турдаги қадоқлаш дастгоҳлари",
+        "name": "Генератор (движок)",
         "nameRef": {
-          "value": "Товуқ гўштини ҳар хил турдаги қадоқлаш дастгоҳлари",
+          "value": "Генератор (движок)",
           "ref": "дастгох!B34",
-          "sheetText": "Товуқ гўштини ҳар хил турдаги  қадоқлаш дастгоҳлари"
+          "sheetText": "Генератор   (Движок)"
         },
-        "group": "slaughter",
+        "group": "power",
         "count": {
-          "value": null,
-          "ref": "дастгох!C34"
+          "value": 22,
+          "ref": "мижоз маълумоти, 27.09.2026",
+          "note": "дастгох!C34 is empty; count given by the client"
         },
         "perHour": null,
         "capacityText": null,
@@ -2280,7 +2282,7 @@
         },
         "cost": {
           "total": {
-            "value": 300,
+            "value": 382.2,
             "ref": "дастгох!F34",
             "formula": "=+G34+H34"
           },
@@ -2290,7 +2292,7 @@
             "formula": "=+G35+G36"
           },
           "equipment": {
-            "value": 300,
+            "value": 382.2,
             "ref": "дастгох!H34",
             "formula": "=+H35+H36"
           },
@@ -2316,16 +2318,17 @@
         },
         "bank": {
           "total": {
-            "value": 300,
+            "value": 382.2,
             "ref": "дастгох!F36",
-            "formula": "=+G36+H36"
+            "sheetValue": 0,
+            "note": "Sheet has 0; the parts (G+H) add up to 382.2"
           },
           "construction": {
             "value": 0,
             "ref": "дастгох!G36"
           },
           "equipment": {
-            "value": 300,
+            "value": 382.2,
             "ref": "дастгох!H36"
           },
           "chickens": null,
@@ -2350,17 +2353,17 @@
         },
         "cost": {
           "total": {
-            "value": 21190,
+            "value": 22455,
             "ref": "жами лойиха!C6",
             "formula": "=+C7+C8"
           },
           "construction": {
-            "value": 6950,
+            "value": 7780,
             "ref": "жами лойиха!D6",
             "formula": "=+D7+D8"
           },
           "equipment": {
-            "value": 7150,
+            "value": 7585,
             "ref": "жами лойиха!E6",
             "formula": "=+E7+E8"
           },
@@ -2377,12 +2380,12 @@
         },
         "own": {
           "total": {
-            "value": 9490,
+            "value": 10320,
             "ref": "жами лойиха!C7",
             "formula": "=+D7+E7+F7+G7"
           },
           "construction": {
-            "value": 2400,
+            "value": 3230,
             "ref": "жами лойиха!D7",
             "formula": "=+броллер!J8"
           },
@@ -2404,7 +2407,7 @@
         },
         "bank": {
           "total": {
-            "value": 11700,
+            "value": 12135,
             "ref": "жами лойиха!C8",
             "formula": "=+D8+E8"
           },
@@ -2414,7 +2417,7 @@
             "formula": "=+броллер!J9"
           },
           "equipment": {
-            "value": 7150,
+            "value": 7585,
             "ref": "жами лойиха!E8",
             "formula": "=+броллер!K9"
           },
@@ -2438,17 +2441,17 @@
         },
         "cost": {
           "total": {
-            "value": 18030,
+            "value": 19609,
             "ref": "жами лойиха!C9",
             "formula": "=+тухум1!I7"
           },
           "construction": {
-            "value": 2600,
+            "value": 4000,
             "ref": "жами лойиха!D9",
             "formula": "=+D10+D11"
           },
           "equipment": {
-            "value": 7310,
+            "value": 7489,
             "ref": "жами лойиха!E9",
             "formula": "=+E10+E11"
           },
@@ -2465,12 +2468,12 @@
         },
         "own": {
           "total": {
-            "value": 2890,
+            "value": 4290,
             "ref": "жами лойиха!C10",
             "formula": "=+тухум1!I8"
           },
           "construction": {
-            "value": 0,
+            "value": 1400,
             "ref": "жами лойиха!D10",
             "formula": "=+тухум1!J8"
           },
@@ -2492,7 +2495,7 @@
         },
         "bank": {
           "total": {
-            "value": 15140,
+            "value": 15319,
             "ref": "жами лойиха!C11",
             "formula": "=+тухум1!I9"
           },
@@ -2502,7 +2505,7 @@
             "formula": "=+тухум1!J9"
           },
           "equipment": {
-            "value": 4910,
+            "value": 5089,
             "ref": "жами лойиха!E11",
             "formula": "=+тухум1!K9"
           },
@@ -2525,17 +2528,17 @@
         },
         "cost": {
           "total": {
-            "value": 4610,
+            "value": 5777.2,
             "ref": "жами лойиха!C12",
             "formula": "=+D12+E12"
           },
           "construction": {
-            "value": 400,
+            "value": 600,
             "ref": "жами лойиха!D12",
             "formula": "=+дастгох!G7"
           },
           "equipment": {
-            "value": 4210,
+            "value": 5177.2,
             "ref": "жами лойиха!E12",
             "formula": "=+E13+E14"
           },
@@ -2552,12 +2555,12 @@
         },
         "own": {
           "total": {
-            "value": 400,
+            "value": 600,
             "ref": "жами лойиха!C13",
             "formula": "=+D13+E13"
           },
           "construction": {
-            "value": 400,
+            "value": 600,
             "ref": "жами лойиха!D13",
             "formula": "=+дастгох!G8"
           },
@@ -2577,7 +2580,7 @@
         },
         "bank": {
           "total": {
-            "value": 4210,
+            "value": 5177.2,
             "ref": "жами лойиха!C14",
             "formula": "=+D14+E14"
           },
@@ -2587,7 +2590,7 @@
             "formula": "=+дастгох!G9"
           },
           "equipment": {
-            "value": 4210,
+            "value": 5177.2,
             "ref": "жами лойиха!E14",
             "formula": "=+дастгох!H9"
           },
@@ -2609,17 +2612,17 @@
       },
       "cost": {
         "total": {
-          "value": 43830,
+          "value": 47841.2,
           "ref": "жами лойиха!C15",
           "formula": "=+C12+C9+C6"
         },
         "construction": {
-          "value": 9950,
+          "value": 12380,
           "ref": "жами лойиха!D15",
           "formula": "=+D12+D9+D6"
         },
         "equipment": {
-          "value": 18670,
+          "value": 20251.2,
           "ref": "жами лойиха!E15",
           "formula": "=+E12+E9+E6"
         },
@@ -2636,12 +2639,12 @@
       },
       "own": {
         "total": {
-          "value": 12780,
+          "value": 15210,
           "ref": "жами лойиха!C16",
           "formula": "=+C13+C10+C7"
         },
         "construction": {
-          "value": 2800,
+          "value": 5230,
           "ref": "жами лойиха!D16",
           "formula": "=+D13+D10+D7"
         },
@@ -2663,7 +2666,7 @@
       },
       "bank": {
         "total": {
-          "value": 31050,
+          "value": 32631.2,
           "ref": "жами лойиха!C17",
           "formula": "=+C14+C11+C8"
         },
@@ -2673,7 +2676,7 @@
           "formula": "=+D14+D11+D8"
         },
         "equipment": {
-          "value": 16270,
+          "value": 17851.2,
           "ref": "жами лойиха!E17",
           "formula": "=+E14+E11+E8"
         },
@@ -2691,18 +2694,27 @@
     },
     "feedReserve": {
       "value": 5000,
-      "ref": "жами лойиха!C20",
+      "ref": "жами лойиха!C18",
       "label": "Озуқа заҳираси учун",
-      "labelRef": "жами лойиха!B19"
+      "labelRef": "жами лойиха!B18"
     },
     "totalCredit": {
-      "value": 36050,
+      "value": 37631.2,
       "ref": "жами лойиха!C22",
-      "formula": "=+C17+5000",
+      "formula": "=+C17+C18",
       "label": "Жами кредит"
     }
   },
   "flags": [
+    {
+      "level": "error",
+      "refs": [
+        "дастгох!F36",
+        "дастгох!F9"
+      ],
+      "text": "Totals that aren't the sum of their parts: F36 = 0 but the parts give 382.2; F9 = 4 795 but the parts give 5 177.2.",
+      "resolution": "Using the sum of the parts."
+    },
     {
       "level": "error",
       "refs": [
@@ -2761,7 +2773,7 @@
     {
       "level": "text",
       "refs": [
-        "дастгох!D31"
+        "дастгох!D28"
       ],
       "text": "«1000 тн» typed as text in the birds-per-hour column; it is the cold store's size.",
       "resolution": "Shown as the cold store's capacity, 1 000 т."
@@ -2798,14 +2810,6 @@
     {
       "level": "minor",
       "refs": [
-        "жами лойиха!C22"
-      ],
-      "text": "Formula adds a typed 5000 instead of pointing to the feed-reserve cell C20.",
-      "resolution": "Same value; the slides use C20."
-    },
-    {
-      "level": "minor",
-      "refs": [
         "тухум1!F19",
         "броллер!J10",
         "броллер!K27",
@@ -2824,6 +2828,14 @@
       ],
       "text": "Spelling: Броллер, Хамкор, Лойиха, Трик вазнда, Дастгох, махсулот, автомабили, АКШ.",
       "resolution": "Fixed on the slides; the sheet's text is kept in the JSON as sheetText."
+    },
+    {
+      "level": "client",
+      "refs": [
+        "мижоз маълумоти, 27.09.2026"
+      ],
+      "text": "The generator row has no count in the sheet (C is empty); the client gave 22 on 27.09.2026.",
+      "resolution": "Shown as 22 та with the source «мижоз маълумоти»."
     }
   ]
 }

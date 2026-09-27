@@ -1,9 +1,8 @@
 import { ArrowUpRight, Warehouse, Wheat } from 'lucide-react'
 import { SECTIONS, SUMMARY, type BarRow } from '../data/deck'
-import type { CostKey } from '../data/types'
 import { Card, IconTile } from '../components/Blocks'
 import { FundsLegend, StackedBars } from '../components/Charts'
-import { COST_ICON, FUNDS, SECTION_ICON } from '../components/icons'
+import { barIcon, FUNDS, SECTION_ICON } from '../components/icons'
 import { Num } from '../components/Num'
 
 type Note = { key: string; text: string; fund: keyof typeof FUNDS }
@@ -93,7 +92,7 @@ export function TotalSlide({ onJump, slide }: { onJump: (index: number) => void;
           labelWidth={220}
           valueWidth={190}
           rowGap={24}
-          rows={SUMMARY.costs.map((row) => ({ ...row, icon: COST_ICON[row.key as CostKey] }))}
+          rows={SUMMARY.costs.map((row) => ({ ...row, icon: barIcon(row.key) }))}
         />
         {notes.length > 0 && (
           <div className="mt-auto flex flex-wrap gap-x-6 gap-y-1 pt-4 text-[15px] font-medium text-ink-2">
