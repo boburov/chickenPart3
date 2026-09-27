@@ -1,6 +1,6 @@
 # Смета БХП.xlsx → bhp.json: check table
 
-Source `data/Смета БХП.xlsx` · SHA-256 `ab1e67aa9dfa1106…` · extracted 2026-09-27T20:49:16
+Source `data/Смета БХП.xlsx` · SHA-256 `ab1e67aa9dfa1106…` · extracted 2026-09-27T21:44:07
 
 Regenerate with `npm run extract`. Every number below comes from the JSON the slides use. Money is in thousand $.
 
@@ -28,11 +28,12 @@ Cell address = column letter + row number. *Italic* = formula in Excel · **bold
 | 5 | unit | тухум1!G5, тухум1!G7:G22 | Revenue has no unit; 11 600 for 139,33 млн eggs only fits thousands of $. | Read as thousand USD. |
 | 6 | total | броллер!D7, дастгох!C7, дастгох!D7, тухум1!D7 | броллер!D7 and тухум1!D7 add up «birds per building»; дастгох!C7 mixes buildings and vehicles and skips rows; дастгох!D7 adds three machines of the same 6 000 birds/hour line. | Not shown. The slaughter line is shown as 6 000 birds per hour (дастгох!D10). |
 | 7 | text | дастгох!D31 | «1000 тн» typed as text in the birds-per-hour column; it is the cold store's size. | Shown as the cold store's capacity, 1 000 т. |
-| 8 | question | броллер!B22, броллер!B23 | Both rows are «Асака тумани 2-фабрика»; the second is floor-raised («ер усулда»). | Shown as two rows of the same factory; both are existing («мавжуд»). |
-| 9 | question | броллер!B25, броллер!J25, броллер!K25 | Асака 4-фабрика: no construction cost but new equipment (9 × 150), chicks and feed. The sheet doesn't mark it «мавжуд». | Treated as a project (re-equipment); its 8 100 т is counted as new output. Change EXISTING_OVERRIDES in extract.py if it already produces. |
-| 10 | minor | жами лойиха!C22 | Formula adds a typed 5000 instead of pointing to the feed-reserve cell C20. | Same value; the slides use C20. |
-| 11 | minor | тухум1!F19, броллер!J10, броллер!K27, дастгох!A26:A27, броллер!B28 | F19 is =-G19 (gives 0); J10 is =+J11++J12; K27 is =9*150; дастгох rows 26–27 are numbered 4.1/4.2; a stray «Жами» in броллер!B28. | No effect on any number. |
-| 12 | text | sheet titles, B-column names, headers | Spelling: Броллер, Хамкор, Лойиха, Трик вазнда, Дастгох, махсулот, автомабили, АКШ. | Fixed on the slides; the sheet's text is kept in the JSON as sheetText. |
+| 8 | total | броллер!I22, броллер!I23, броллер!I24 | The three «мавжуд» (existing) factories get no money: I22 = 0, I23 blank, I24 = 0, no own/bank rows under them, and I8/I9 skip them. Only their output counts. | Shown as 0 in Қиймати, Банк and Ўз маблағи, with a note under the table. |
+| 9 | question | броллер!B22, броллер!B23 | Both rows are «Асака тумани 2-фабрика»; the second is floor-raised («ер усулда»). | Shown as two rows of the same factory; both are existing («мавжуд»). |
+| 10 | question | броллер!B25, броллер!J25, броллер!K25 | Асака 4-фабрика: no construction cost but new equipment (9 × 150), chicks and feed. The sheet doesn't mark it «мавжуд». | Treated as a project (re-equipment); its 8 100 т is counted as new output. Change EXISTING_OVERRIDES in extract.py if it already produces. |
+| 11 | minor | жами лойиха!C22 | Formula adds a typed 5000 instead of pointing to the feed-reserve cell C20. | Same value; the slides use C20. |
+| 12 | minor | тухум1!F19, броллер!J10, броллер!K27, дастгох!A26:A27, броллер!B28 | F19 is =-G19 (gives 0); J10 is =+J11++J12; K27 is =9*150; дастгох rows 26–27 are numbered 4.1/4.2; a stray «Жами» in броллер!B28. | No effect on any number. |
+| 13 | text | sheet titles, B-column names, headers | Spelling: Броллер, Хамкор, Лойиха, Трик вазнда, Дастгох, махсулот, автомабили, АКШ. | Fixed on the slides; the sheet's text is kept in the JSON as sheetText. |
 
 ## Бройлер — sheet `броллер`
 

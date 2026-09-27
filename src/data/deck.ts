@@ -157,6 +157,8 @@ export interface TableView {
   columns: { label: string; unit?: string }[]
   groups: TGroup[]
   total: TCell[]
+  /** Shown under the table. */
+  note?: string
 }
 
 const num = (c?: Cell | null, scale = 1, decimals = 0): TCell => (c?.value ? { fig: exact(val(c) / scale, [c.ref], decimals) } : { text: '—' })
@@ -222,6 +224,12 @@ function broilerView(slide: number): SectionView {
   const t = b.totals
   const ratio = val(t.meat) / b.existing.meat
   const byStatus = (s: 'new' | 'reequip' | 'existing') => b.facilities.filter((f) => f.status === s)
+  const existing = byStatus('existing')
+  // Existing factories get no money in the plan: the sheet's cost cell is 0 or blank and they have no own/bank rows.
+  const noMoney = (f: (typeof existing)[number]): TCell[] => {
+    const src = [f.investment?.ref ?? `броллер!I${f.row}`, f.supplier.ref]
+    return [{ fig: exact(0, src) }, { fig: exact(0, src) }, { fig: exact(0, src) }]
+  }
   const statusLabel = { new: 'Янги фабрикалар', reequip: 'Қайта жиҳозланадиган', existing: 'Мавжуд фабрикалар' }
 
   return {
@@ -289,11 +297,22 @@ function broilerView(slide: number): SectionView {
             name: `${short(f.district)} · ${f.name}`,
             nameSrc: [f.nameRef.ref],
             note: f.size ?? undefined,
-            cells: [{ badge: f.status }, num(f.buildings), num(f.birdsPerBuilding), num(f.birdsPerYear), num(f.meat), num(f.revenue), money(f.cost), money(f.bank), money(f.own)],
+            cells: [
+              { badge: f.status },
+              num(f.buildings),
+              num(f.birdsPerBuilding),
+              num(f.birdsPerYear),
+              num(f.meat),
+              num(f.revenue),
+              ...(f.status === 'existing' ? noMoney(f) : [money(f.cost), money(f.bank), money(f.own)]),
+            ],
           })),
         },
       ],
       total: [blank, { fig: exact(val(t.buildings), refsOf(t.buildings)) }, blank, num(t.birdsPerYear), num(t.meat), num(t.revenue), money(t.cost), money(t.bank), money(t.own)],
+      note: existing.length
+        ? `«Мавжуд» фабрикалар аллақачон ишлаб турибди: сметада уларга маблағ ажратилмаган (0). Уларнинг йиллик ${formatNumber(b.existing.meat)} т гўшти умумий ҳажмга қўшилган.`
+        : undefined,
     },
   }
 }

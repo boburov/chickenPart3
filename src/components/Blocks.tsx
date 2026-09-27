@@ -1,5 +1,5 @@
 import { Fragment, type ReactNode } from 'react'
-import { Handshake, type LucideIcon } from 'lucide-react'
+import { Handshake, Info, type LucideIcon } from 'lucide-react'
 import cnFlag from 'flag-icons/flags/4x3/cn.svg'
 import plFlag from 'flag-icons/flags/4x3/pl.svg'
 import uzFlag from 'flag-icons/flags/4x3/uz.svg'
@@ -159,7 +159,7 @@ function Value({ cell, strong = false }: { cell: TCell; strong?: boolean }) {
 /** A detail slide's table: exact numbers like the spreadsheet, units under each column name. */
 export function DataTable({ table }: { table: TableView }) {
   const lines = table.groups.reduce((a, g) => a + g.rows.length + (g.label ? 1 : 0), 0)
-  const pad = lines > 11 ? 'py-[7px]' : lines > 8 ? 'py-[13px]' : lines > 6 ? 'py-[18px]' : 'py-[24px]'
+  const pad = lines > 11 ? 'py-[7px]' : lines > 8 ? 'py-[13px]' : lines > 6 ? (table.note ? 'py-[15px]' : 'py-[18px]') : 'py-[24px]'
   const right = (i: number) => Boolean(table.columns[i]?.unit)
   return (
     <div data-anim="rise" className="glass-strong min-h-0 flex-1 self-start rounded-[24px] px-8 pt-5 pb-3">
@@ -230,6 +230,12 @@ export function DataTable({ table }: { table: TableView }) {
           </tr>
         </tfoot>
       </table>
+      {table.note && (
+        <p className="mt-3 flex items-start gap-2 border-t border-hairline pt-3 pb-1 text-[15px] font-medium leading-snug text-ink-2">
+          <Info size={17} className="mt-0.5 shrink-0 text-brand-blue" />
+          {table.note}
+        </p>
+      )}
     </div>
   )
 }

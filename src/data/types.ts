@@ -46,6 +46,8 @@ export interface BroilerFacility extends Named {
   cost?: Money
   own?: Money
   bank?: Money
+  /** Existing («мавжуд») factories only: the sheet's cost cell, 0 or blank. */
+  investment?: Cell
 }
 
 export interface EggFacility extends Named {

@@ -108,6 +108,9 @@ STATIC_FLAGS = [
     {"level": "text", "refs": ["дастгох!D31"],
      "text": "«1000 тн» typed as text in the birds-per-hour column; it is the cold store's size.",
      "resolution": "Shown as the cold store's capacity, 1 000 т."},
+    {"level": "total", "refs": ["броллер!I22", "броллер!I23", "броллер!I24"],
+     "text": "The three «мавжуд» (existing) factories get no money: I22 = 0, I23 blank, I24 = 0, no own/bank rows under them, and I8/I9 skip them. Only their output counts.",
+     "resolution": "Shown as 0 in Қиймати, Банк and Ўз маблағи, with a note under the table."},
     {"level": "question", "refs": ["броллер!B22", "броллер!B23"],
      "text": "Both rows are «Асака тумани 2-фабрика»; the second is floor-raised («ер усулда»).",
      "resolution": "Shown as two rows of the same factory; both are existing («мавжуд»)."},
@@ -269,7 +272,8 @@ def broiler(book, flags, warnings):
             "meat": book.num(s, f"F{r}"),
             "revenue": book.num(s, f"G{r}"),
             "supplier": supplier(book, s, f"H{r}", warnings),
-            **({"cost": book.money(s, r), "own": book.money(s, r + 1), "bank": book.money(s, r + 2)} if has_money else {}),
+            **({"cost": book.money(s, r), "own": book.money(s, r + 1), "bank": book.money(s, r + 2)} if has_money
+               else {"investment": book.num(s, f"I{r}", note="«мавжуд»: no money in the plan, no own/bank rows")}),
         })
 
     shown, full, skipped = total_vs_rows(book, s, "C", BROILER_ROWS)
