@@ -115,6 +115,7 @@ export interface BarRow {
   share?: Fig
   exact: { total: number; bank: number; own: number }
   count?: { fig: Fig; unit: string }
+  partOf?: string
 }
 
 /**
@@ -132,13 +133,16 @@ export function StackedBars({ rows, labelWidth = 200, valueWidth = 190, rowGap =
         const width = (row.exact.total / max) * 100
         return (
           <div key={row.key} className="grid items-center gap-4" style={{ gridTemplateColumns: `${labelWidth}px 1fr ${valueWidth}px` }}>
-            <div className="flex items-center gap-3 text-[18px] font-semibold text-ink">
+            <div className={`flex items-center gap-3 font-semibold text-ink ${row.partOf ? 'pl-[52px] text-[17px]' : 'text-[18px]'}`}>
               {row.icon && (
                 <span className="grid size-10 shrink-0 place-items-center rounded-[12px] bg-white/80 text-brand-deep shadow-[0_2px_8px_-3px_#123b8f40]">
                   <row.icon size={20} strokeWidth={2} />
                 </span>
               )}
-              <span className="leading-tight">{row.label}</span>
+              <span className="leading-tight">
+                {row.partOf && <span className="block text-[13px] font-medium text-ink-3">шу жумладан</span>}
+                {row.label}
+              </span>
               {row.count && (
                 <span className="whitespace-nowrap rounded-full bg-mist px-2.5 py-1 text-[14px] font-[750] leading-none text-brand-deep">
                   <Num fig={row.count.fig} animate={false} /> {row.count.unit}
@@ -186,6 +190,7 @@ export function StackedBars({ rows, labelWidth = 200, valueWidth = 190, rowGap =
                 <>
                   <Num fig={row.total} className="text-[24px] font-[720] text-ink" />
                   <span className="text-[16px] font-medium text-ink-2">млн $</span>
+                  {row.partOf && <span className="ml-1 w-[48px]" aria-hidden />}
                   {row.share && (
                     <span className="ml-1 w-[48px] text-right text-[16px] font-semibold text-ink-3">
                       <Num fig={row.share} animate={false} />%

@@ -87,8 +87,11 @@ export interface BarRow {
   key: string
   label: string
   total: Fig
-  share: Fig
+  /** Missing on «шу жумладан» rows: their share is already in the parent row. */
+  share?: Fig
   exact: { total: number; bank: number; own: number }
+  /** Set on a «шу жумладан» row: the key of the row that already includes it. */
+  partOf?: string
   /** Units behind the bar (22 generators), shown next to its label. */
   count?: { fig: Fig; unit: string }
 }
@@ -562,34 +565,26 @@ const sum = data.summary
 const sectionLabel: Record<SectionId, string> = { broiler: 'Бройлер', eggs: 'Тухум', processing: 'Қайта ишлаш' }
 
 // The client wants the generator on the Жами slide too, with its count. The sheet
-// books it as equipment (дастгох!H34), so it comes out of Дастгоҳ into a row of its
-// own and the cost rows still add up to the total.
+// books it as equipment (дастгох!H34), so Дастгоҳ keeps the sheet's own total
+// (жами лойиха!E15, generator included) and the generator shows under it as
+// «шу жумладан»: it isn't counted twice, and the main rows still add up to the total.
 const power = data.processing.items.filter((i) => i.group === 'power')
 
 function summaryCosts(): BarRow[] {
-  type Fund = 'cost' | 'bank' | 'own'
-  const moved = (fund: Fund, k: MoneyKey) => sumOf(power, (i) => val(i[fund][k]))
-  const rows: BarInput[] = COST_KEYS.map((k) => {
-    const side = (fund: Fund) => ({
-      value: val(sum.total[fund][k]) - moved(fund, k),
-      src: [...ref(sum.total[fund][k]), ...(moved(fund, k) ? power.flatMap((i) => ref(i[fund][k]).map((r) => `− ${r}`)) : [])],
-    })
-    const [c, b, o] = [side('cost'), side('bank'), side('own')]
-    return { key: k, label: k === 'chickens' ? 'Жўжа / товуқ' : COST_LABEL[k], total: c.value, bank: b.value, own: o.value, src: { total: c.src, bank: b.src, own: o.src } }
-  })
-  if (power.length) {
-    const refs = (fund: Fund) => power.flatMap((i) => ref(i[fund].total))
-    rows.push({
-      key: 'power',
-      label: data.processing.groups.power,
-      total: moved('cost', 'total'),
-      bank: moved('bank', 'total'),
-      own: moved('own', 'total'),
-      src: { total: refs('cost'), bank: refs('bank'), own: refs('own') },
-      count: unitCount(power),
-    })
+  const rows = costBars(sum.total.cost, sum.total.bank, sum.total.own, { chickens: 'Жўжа / товуқ' })
+  if (!power.length) return rows
+  const total = (fund: 'cost' | 'bank' | 'own') => sumOf(power, (i) => val(i[fund].total))
+  const refs = (fund: 'cost' | 'bank' | 'own') => power.flatMap((i) => ref(i[fund].total))
+  const generator: BarRow = {
+    key: 'power',
+    label: data.processing.groups.power,
+    total: kusdToMln(total('cost'), refs('cost')),
+    exact: { total: total('cost'), bank: total('bank'), own: total('own') },
+    count: unitCount(power),
+    partOf: 'equipment',
   }
-  return barRows(rows)
+  const at = rows.findIndex((r) => r.key === 'equipment') + 1
+  return [...rows.slice(0, at), generator, ...rows.slice(at)]
 }
 
 export const SUMMARY = {
