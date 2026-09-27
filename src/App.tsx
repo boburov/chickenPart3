@@ -1,11 +1,12 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { useGSAP } from '@gsap/react'
-import { SECTIONS, SLIDES } from './data/deck'
+import { SLIDES } from './data/deck'
 import { Backdrop, Footer, Header, Stage, type DeckControls } from './components/Frame'
 import { SourcesContext } from './components/Num'
 import { gsap, playEntrance, prefersReducedMotion, settleCounters } from './lib/motion'
 import { CoverSlide } from './slides/CoverSlide'
-import { SectionSlide } from './slides/SectionSlide'
+import { DetailsSlide } from './slides/DetailsSlide'
+import { OverviewSlide } from './slides/OverviewSlide'
 import { TotalSlide } from './slides/TotalSlide'
 
 const LAST = SLIDES.length - 1
@@ -177,10 +178,9 @@ export default function App() {
         <div ref={stageRef} className="deck absolute inset-0">
           <Backdrop />
           {SLIDES.map((slide, i) => {
-            const section = SECTIONS.find((s) => s.id === slide.id)
             return (
               <section
-                key={slide.id}
+                key={slide.key}
                 ref={(el) => {
                   if (el) slideRefs.current[i] = el
                 }}
@@ -190,10 +190,11 @@ export default function App() {
                 aria-hidden={!printPreview && i !== index}
                 inert={!printPreview && i !== index}
               >
-                <Header index={i} controls={controls} />
-                {slide.id === 'cover' && <CoverSlide onJump={jump} totalSlide={SLIDES.length} />}
-                {section && <SectionSlide s={section} />}
-                {slide.id === 'total' && <TotalSlide onJump={jump} slide={i + 1} />}
+                {slide.kind !== 'cover' && <Header index={i} controls={controls} />}
+                {slide.kind === 'cover' && <CoverSlide index={i} controls={{ ...controls, index: i }} />}
+                {slide.kind === 'overview' && slide.section && <OverviewSlide s={slide.section} />}
+                {slide.kind === 'details' && slide.section && <DetailsSlide s={slide.section} />}
+                {slide.kind === 'total' && <TotalSlide onJump={jump} slide={i + 1} />}
                 <Footer controls={{ ...controls, index: i }} />
               </section>
             )

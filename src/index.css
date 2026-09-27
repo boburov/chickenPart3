@@ -15,6 +15,9 @@
   --color-brand-tan: #d4a268;
   --color-bank: #176bff;
   --color-own: #c2853a;
+  /* chicken-ov1.vercel.app */
+  --color-navy-deep: #0c2a6b;
+  --color-mist: #eef3ff;
 
   --font-sans: "Onest Variable", "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
 
@@ -45,10 +48,33 @@
 
 @utility eyebrow {
   font-size: 15px;
-  font-weight: 750;
-  letter-spacing: 0.12em;
+  font-weight: 800;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--color-brand-blue);
+}
+
+/* Small uppercase card label, navy (chicken-ov1). */
+@utility label-caps {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-brand-deep);
+}
+
+@utility bg-grad {
+  background-image: linear-gradient(135deg, var(--color-brand-blue), var(--color-brand-purple));
+}
+
+@utility shadow-glow {
+  box-shadow: 0 0 0 1px #176bff2e, 0 12px 32px -10px #176bff73;
+}
+
+/* Blue dot grid used as decoration. */
+@utility dots {
+  background-image: radial-gradient(#176bff73 2.4px, transparent 2.6px);
+  background-size: 16px 16px;
 }
 
 @layer base {

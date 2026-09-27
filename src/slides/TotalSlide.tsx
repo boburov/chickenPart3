@@ -22,79 +22,81 @@ export function TotalSlide({ onJump, slide }: { onJump: (index: number) => void;
   const f = SUMMARY.financing
   const notes = singleSourceNotes(SUMMARY.costs)
   return (
-    <div className="absolute inset-x-16 top-[124px] bottom-[76px] grid grid-cols-12 grid-rows-[188px_minmax(0,1fr)_236px] gap-6">
-      <div className="col-span-4 flex flex-col justify-end pb-1">
+    <div className="absolute inset-x-[72px] top-[128px] bottom-[76px] grid grid-cols-12 grid-rows-[190px_minmax(0,1fr)_170px] gap-7">
+      <div className="col-span-4 flex flex-col justify-end">
         <div data-anim="rise" className="eyebrow">
           {String(slide).padStart(2, '0')} · Уч йўналиш бўйича
         </div>
-        <h1 data-anim="rise" className="mt-2 text-[88px] font-[780] leading-[0.98] tracking-[-0.035em] text-ink">
+        <h1 data-anim="rise" className="mt-2 text-[80px] font-[800] leading-[0.95] tracking-[-0.03em] text-brand-deep">
           Жами
         </h1>
-        <div data-anim="rise" className="mt-3 flex items-center gap-2 text-[18px] font-medium text-ink-2">
-          <Warehouse size={19} className="text-brand-blue" />
+        <div data-anim="rise" className="mt-3 flex items-center gap-2 text-[17px] font-medium text-ink-2">
+          <Warehouse size={18} className="text-brand-blue" />
           <Num fig={SUMMARY.buildings} animate={false} className="font-semibold text-ink" /> та парранда биноси
         </div>
       </div>
 
-      <div className="col-span-8 grid grid-cols-[1.25fr_1fr_1fr_1.25fr] gap-5">
+      <div className="col-span-8 grid grid-cols-[1.15fr_1fr_1fr_1.2fr] gap-5">
         <div data-anim="rise" className="glass-strong flex flex-col justify-between rounded-[24px] p-6">
-          <div className="text-[17px] font-semibold text-ink-2">Лойиҳа қиймати</div>
+          <div className="label-caps">Лойиҳа қиймати</div>
           <div className="flex items-baseline gap-2 whitespace-nowrap">
-            <Num fig={f.total} className="text-[70px] font-[800] leading-none tracking-[-0.035em] text-ink" />
-            <span className="text-[22px] font-semibold text-ink-2">млн $</span>
+            <Num fig={f.total} className="text-[62px] font-[800] leading-none tracking-[-0.035em] text-navy-deep" />
+            <span className="text-[20px] font-semibold text-ink-2">млн $</span>
           </div>
         </div>
         {(['bank', 'own'] as const).map((k) => (
           <div key={k} data-anim="rise" className="glass flex flex-col justify-between rounded-[24px] p-6">
-            <div className="flex items-center gap-2.5 text-[17px] font-semibold text-ink-2">
+            <div className="flex items-center gap-2.5">
               <i className="size-3.5 rounded-[3px]" style={{ background: FUNDS[k].color }} />
-              {FUNDS[k].label}
+              <span className="label-caps">{FUNDS[k].label}</span>
             </div>
             <div>
               <div className="flex items-baseline gap-2 whitespace-nowrap">
-                <Num fig={f[k]} className="text-[42px] font-[780] leading-none tracking-[-0.03em] text-ink" />
-                <span className="text-[18px] font-semibold text-ink-2">млн $</span>
+                <Num fig={f[k]} className="text-[42px] font-[800] leading-none tracking-[-0.03em] text-navy-deep" />
+                <span className="text-[17px] font-semibold text-ink-2">млн $</span>
               </div>
-              <div className="mt-2 text-[16px] font-semibold text-ink-3">
+              <div className="mt-2 text-[15px] font-semibold text-ink-3">
                 <Num fig={k === 'bank' ? f.bankPct : f.ownPct} animate={false} />% жамидан
               </div>
             </div>
           </div>
         ))}
-        <div data-anim="rise" className="flex flex-col justify-between rounded-[24px] bg-brand-deep p-6 text-white shadow-[0_18px_40px_-18px_#123b8fcc]">
-          <div className="text-[17px] font-semibold text-white/75">Жами кредит</div>
+        <div data-anim="rise" className="bg-grad flex flex-col justify-between rounded-[24px] p-6 text-white shadow-glow">
+          <div className="text-[13px] font-[800] uppercase tracking-[0.12em] text-white/85">Жами кредит</div>
           <div>
             <div className="flex items-baseline gap-2 whitespace-nowrap">
-              <Num fig={SUMMARY.totalCredit} className="text-[46px] font-[800] leading-none tracking-[-0.03em]" />
-              <span className="text-[19px] font-semibold text-white/75">млн $</span>
+              <Num fig={SUMMARY.totalCredit} className="text-[50px] font-[800] leading-none tracking-[-0.03em]" />
+              <span className="text-[18px] font-semibold text-white/80">млн $</span>
             </div>
-            <div className="mt-2 flex items-center gap-1.5 text-[15px] font-medium text-white/75">
-              <Num fig={SUMMARY.projectCredit} animate={false} className="font-semibold text-white" /> +
-              <Wheat size={15} />
-              <Num fig={SUMMARY.feedReserve} animate={false} className="font-semibold text-white" /> {SUMMARY.feedReserveLabel.toLowerCase()}
+            <div className="mt-2 flex items-center gap-1.5 text-[14px] font-medium text-white/85">
+              <Num fig={SUMMARY.projectCredit} animate={false} className="font-semibold text-white" /> лойиҳалар +
+              <Wheat size={14} />
+              <Num fig={SUMMARY.feedReserve} animate={false} className="font-semibold text-white" /> озуқа
             </div>
           </div>
         </div>
       </div>
 
-      <Card className="col-span-6" title="Йўналишлар бўйича" aside={<FundsLegend />}>
-        <StackedBars
-          labelWidth={220}
-          valueWidth={186}
-          rowGap={30}
-          rows={SUMMARY.bySection.map((row) => ({ ...row, icon: SECTION_ICON[row.key as keyof typeof SECTION_ICON] }))}
-        />
+      <Card className="col-span-6 flex flex-col" label="Йўналишлар бўйича" aside={<FundsLegend />}>
+        <div className="flex flex-1 flex-col justify-center pb-6">
+          <StackedBars
+            labelWidth={220}
+            valueWidth={190}
+            rowGap={48}
+            rows={SUMMARY.bySection.map((row) => ({ ...row, icon: SECTION_ICON[row.key as keyof typeof SECTION_ICON] }))}
+          />
+        </div>
       </Card>
 
-      <Card className="col-span-6 flex flex-col" title="Харажатлар таркиби" aside={<FundsLegend />}>
+      <Card className="col-span-6 flex flex-col" label="Харажатлар таркиби" aside={<FundsLegend />}>
         <StackedBars
           labelWidth={220}
-          valueWidth={186}
-          rowGap={18}
+          valueWidth={190}
+          rowGap={24}
           rows={SUMMARY.costs.map((row) => ({ ...row, icon: COST_ICON[row.key as CostKey] }))}
         />
         {notes.length > 0 && (
-          <div className="mt-auto flex flex-wrap gap-x-6 gap-y-1 pt-3 text-[15px] font-medium text-ink-2">
+          <div className="mt-auto flex flex-wrap gap-x-6 gap-y-1 pt-4 text-[15px] font-medium text-ink-2">
             {notes.map((n) => (
               <span key={n.key} className="flex items-center gap-2">
                 <i className="size-2.5 rounded-full" style={{ background: FUNDS[n.fund].color }} />
@@ -105,25 +107,24 @@ export function TotalSlide({ onJump, slide }: { onJump: (index: number) => void;
         )}
       </Card>
 
-      <div className="col-span-12 grid min-h-0 grid-cols-3 gap-6">
+      <div className="col-span-12 grid min-h-0 grid-cols-3 gap-7">
         {SECTIONS.map((s) => (
           <button
             key={s.id}
             type="button"
             data-anim="rise"
             onClick={() => onJump(s.slide - 1)}
-            className="glass group flex items-center gap-5 rounded-[24px] px-6 text-left transition-shadow duration-300 hover:shadow-[0_0_0_1px_#176bff2e,0_12px_32px_-10px_#176bff73]"
+            className="glass group flex items-center gap-5 rounded-[24px] px-7 text-left transition-shadow duration-300 hover:shadow-glow"
           >
             <IconTile icon={SECTION_ICON[s.id]} size={60} />
             <div className="min-w-0 flex-1">
-              <div className="flex items-center justify-between text-[21px] font-[740] text-ink">
-                {s.title}
+              <div className="flex items-center justify-between">
+                <span className="label-caps">{s.hero.label}</span>
                 <ArrowUpRight size={22} className="text-ink-3 transition-colors group-hover:text-brand-blue" />
               </div>
-              <div className="mt-1.5 text-[15px] font-medium text-ink-2">{s.hero.label}</div>
-              <div className="mt-1 flex items-baseline gap-1.5 whitespace-nowrap">
-                <Num fig={s.hero.fig} className="text-[46px] font-[790] leading-none tracking-[-0.02em] text-ink" />
-                {s.hero.prefix && <span className="text-[22px] font-[720] text-ink">{s.hero.prefix}</span>}
+              <div className="mt-1.5 flex items-baseline gap-2 whitespace-nowrap">
+                <Num fig={s.hero.fig} className="text-[46px] font-[800] leading-none tracking-[-0.02em] text-navy-deep" />
+                {s.hero.prefix && <span className="text-[22px] font-[750] text-navy-deep">{s.hero.prefix}</span>}
                 <span className="truncate text-[16px] font-medium text-ink-2">{s.hero.unit}</span>
               </div>
               {s.hero.chip && <div className="mt-2 truncate text-[14px] font-semibold text-brand-deep">{s.hero.chip}</div>}

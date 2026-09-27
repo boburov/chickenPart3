@@ -1,7 +1,8 @@
 # Барака Ҳамкор Парранда: credit plan slides (ChickenPart3)
 
-Five 16:9 slides (React + Tailwind + GSAP) built from `data/Смета БХП.xlsx`:
-cover → Бройлер → Тухум → Қайта ишлаш → Жами.
+Eight 16:9 slides (React + Tailwind + GSAP) built from `data/Смета БХП.xlsx`, styled after
+chicken-ov1.vercel.app: cover (with the joint-venture banner) → for each of Бройлер, Тухум and
+Қайта ишлаш an overview slide and a table slide → Жами.
 
 ## Run
 
@@ -18,7 +19,7 @@ npm run dev -- --port 5175    # http://localhost:5175
 |---|---|
 | → ↓ Space PageDown | next slide |
 | ← ↑ PageUp | previous slide |
-| 1–5, Home, End | jump to a slide |
+| 1–8, Home, End | jump to a slide |
 | F | fullscreen |
 | S | show the spreadsheet cell behind every number |
 | ⌘P / Ctrl+P | PDF: one slide per page, final numbers, no animation |
@@ -48,15 +49,18 @@ Decisions baked into the extractor (see Flags in `docs/verification.md`):
   is treated as a re-equipment project; to count it as existing, add row 25 to
   `EXISTING_OVERRIDES` in `scripts/extract.py`.
 
-## Photos
+## Photos and banner
 
-Put an image URL (or a file placed in `public/photos/`) in `src/data/photos.ts`.
-Empty entries show a branded placeholder in the same spot.
+The cover has four numbered photo spaces: put image URLs (or files placed in `public/photos/`)
+in `src/data/photos.ts`; empty entries show a branded placeholder with the same caption.
+
+The joint-venture banner text (“KEGEYLI BARAKA NASLLI PARRANDA” H.K and
+“BEIJING HUA DU YOUKOU POULTRY CO., LTD”) is `JOINT_VENTURE` in `src/data/deck.ts`.
 
 ## Where things are
 
 - `src/data/deck.ts`: turns the JSON into slide figures (rounding keeps parts adding up to totals)
-- `src/slides/`: cover, section (shared by the three directions) and total slides
+- `src/slides/`: cover, overview and table slides (shared by the three directions), total
 - `src/components/`: charts, tables, header and footer
 - `src/lib/motion.ts`: GSAP entrance animations
 - Brand colours and fonts: `src/index.css` (`@theme`)

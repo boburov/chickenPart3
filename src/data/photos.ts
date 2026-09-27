@@ -1,12 +1,10 @@
-import type { SectionId } from './deck'
-
 /**
- * Photo for each slide. Paste an image URL (or a path under public/, e.g. "/photos/cover.jpg").
- * Leave it empty and the slide shows a branded placeholder in the same spot.
+ * Photos. Paste an image URL (or a path under public/, e.g. "/photos/broiler.jpg") into `src`.
+ * An empty `src` shows a branded placeholder with the same caption in the same spot.
  */
-export const PHOTOS: Record<'cover' | SectionId, string> = {
-  cover: '',
-  broiler: '',
-  eggs: '',
-  processing: '',
-}
+export const COVER_PHOTOS: { caption: string; src: string }[] = [
+  { caption: 'Бройлер фабрикаси', src: '' },
+  { caption: 'Тухум фабрикаси', src: '' },
+  { caption: 'Сўйиш цехи', src: '' },
+  { caption: 'Ем завод', src: '' },
+]
