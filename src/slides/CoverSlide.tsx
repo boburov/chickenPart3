@@ -98,8 +98,7 @@ export function CoverSlide({ index, controls }: { index: number; controls: DeckC
               unit="млн $"
               sub={
                 <>
-                  лойиҳалар <Num fig={SUMMARY.projectCredit} animate={false} className="font-semibold text-ink" /> + озуқа заҳираси{' '}
-                  <Num fig={SUMMARY.feedReserve} animate={false} className="font-semibold text-ink" />
+                  лойиҳа қийматининг <Num fig={f.bankPct} animate={false} className="font-semibold text-ink" />%
                 </>
               }
             />
@@ -141,10 +140,6 @@ export function CoverSlide({ index, controls }: { index: number; controls: DeckC
                   ))}
                 </div>
               </div>
-            </div>
-            <div className="mt-5 flex items-center gap-2.5 rounded-[14px] bg-mist px-4 py-3 text-[15px] font-medium text-ink-2">
-              <Wheat size={17} className="shrink-0 text-brand-blue" />
-              {SUMMARY.feedReserveLabel}: <span className="font-[750] text-ink">+<Num fig={SUMMARY.feedReserve} animate={false} /> млн $</span> банк кредити
             </div>
           </Card>
 

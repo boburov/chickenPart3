@@ -599,7 +599,10 @@ def main():
     data["flags"] = flags + STATIC_FLAGS + [
         {"level": "client", "refs": [it["count"]["ref"] for it in data["processing"]["items"] if it["group"] in CLIENT_COUNTS],
          "text": "The generator row has no count in the sheet (C is empty); the client gave 22 on 27.09.2026.",
-         "resolution": "Shown as 22 та with the source «мижоз маълумоти»."}
+         "resolution": "Shown as 22 та with the source «мижоз маълумоти»."},
+        {"level": "client", "refs": [data["summary"]["feedReserve"]["ref"], data["summary"]["totalCredit"]["ref"]],
+         "text": "On 27.09.2026 the client asked not to add the feed reserve to the total credit.",
+         "resolution": "Жами кредит shows the projects' bank credit (жами лойиха!C17), not C22."},
     ]
     OUT_JSON.parent.mkdir(parents=True, exist_ok=True)
     OUT_JSON.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

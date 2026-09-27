@@ -560,7 +560,6 @@ export const SECTIONS: SectionView[] = [broilerView(2), eggsView(4), processingV
 
 const sum = data.summary
 const sectionLabel: Record<SectionId, string> = { broiler: 'Бройлер', eggs: 'Тухум', processing: 'Қайта ишлаш' }
-const reserve = val(sum.feedReserve)
 
 // The client wants the generator on the Жами slide too, with its count. The sheet
 // books it as equipment (дастгох!H34), so it comes out of Дастгоҳ into a row of its
@@ -609,10 +608,9 @@ export const SUMMARY = {
     }),
   ),
   costs: summaryCosts(),
-  projectCredit: kusdToMln(val(sum.total.bank.total), ref(sum.total.bank.total)),
-  feedReserve: kusdToMln(reserve, [sum.feedReserve.ref]),
-  feedReserveLabel: sum.feedReserve.label,
-  totalCredit: kusdToMln(val(sum.total.bank.total) + reserve, [...ref(sum.total.bank.total), sum.feedReserve.ref]),
+  // The client asked (27.09.2026) not to add the 5 000 feed reserve (жами лойиха!C18):
+  // Жами кредит is the projects' bank credit, not the sheet's C22.
+  totalCredit: kusdToMln(val(sum.total.bank.total), ref(sum.total.bank.total)),
   buildings: exact(val(data.broiler.totals.buildings) + val(data.eggs.totals.buildings), [
     ...refsOf(data.broiler.totals.buildings),
     data.eggs.totals.buildings.ref,

@@ -1,4 +1,4 @@
-import { ArrowUpRight, Warehouse, Wheat } from 'lucide-react'
+import { ArrowUpRight, Warehouse } from 'lucide-react'
 import { SECTIONS, SUMMARY, type BarRow } from '../data/deck'
 import { Card, IconTile } from '../components/Blocks'
 import { FundsLegend, StackedBars } from '../components/Charts'
@@ -35,7 +35,8 @@ export function TotalSlide({ onJump, slide }: { onJump: (index: number) => void;
         </div>
       </div>
 
-      <div className="col-span-8 grid grid-cols-[1.15fr_1fr_1fr_1.2fr] gap-5">
+      {/* Жами кредит equals the bank credit (the client dropped the feed reserve), so it takes the bank card's place. */}
+      <div className="col-span-8 grid grid-cols-[1.15fr_1fr_1.2fr] gap-5">
         <div data-anim="rise" className="glass-strong flex flex-col justify-between rounded-[24px] p-6">
           <div className="label-caps">Лойиҳа қиймати</div>
           <div className="flex items-baseline gap-2 whitespace-nowrap">
@@ -43,23 +44,21 @@ export function TotalSlide({ onJump, slide }: { onJump: (index: number) => void;
             <span className="text-[20px] font-semibold text-ink-2">млн $</span>
           </div>
         </div>
-        {(['bank', 'own'] as const).map((k) => (
-          <div key={k} data-anim="rise" className="glass flex flex-col justify-between rounded-[24px] p-6">
-            <div className="flex items-center gap-2.5">
-              <i className="size-3.5 rounded-[3px]" style={{ background: FUNDS[k].color }} />
-              <span className="label-caps">{FUNDS[k].label}</span>
+        <div data-anim="rise" className="glass flex flex-col justify-between rounded-[24px] p-6">
+          <div className="flex items-center gap-2.5">
+            <i className="size-3.5 rounded-[3px]" style={{ background: FUNDS.own.color }} />
+            <span className="label-caps">{FUNDS.own.label}</span>
+          </div>
+          <div>
+            <div className="flex items-baseline gap-2 whitespace-nowrap">
+              <Num fig={f.own} className="text-[42px] font-[800] leading-none tracking-[-0.03em] text-navy-deep" />
+              <span className="text-[17px] font-semibold text-ink-2">млн $</span>
             </div>
-            <div>
-              <div className="flex items-baseline gap-2 whitespace-nowrap">
-                <Num fig={f[k]} className="text-[42px] font-[800] leading-none tracking-[-0.03em] text-navy-deep" />
-                <span className="text-[17px] font-semibold text-ink-2">млн $</span>
-              </div>
-              <div className="mt-2 text-[15px] font-semibold text-ink-3">
-                <Num fig={k === 'bank' ? f.bankPct : f.ownPct} animate={false} />% жамидан
-              </div>
+            <div className="mt-2 text-[15px] font-semibold text-ink-3">
+              <Num fig={f.ownPct} animate={false} />% жамидан
             </div>
           </div>
-        ))}
+        </div>
         <div data-anim="rise" className="bg-grad flex flex-col justify-between rounded-[24px] p-6 text-white shadow-glow">
           <div className="text-[13px] font-[800] uppercase tracking-[0.12em] text-white/85">Жами кредит</div>
           <div>
@@ -67,10 +66,8 @@ export function TotalSlide({ onJump, slide }: { onJump: (index: number) => void;
               <Num fig={SUMMARY.totalCredit} className="text-[50px] font-[800] leading-none tracking-[-0.03em]" />
               <span className="text-[18px] font-semibold text-white/80">млн $</span>
             </div>
-            <div className="mt-2 flex items-center gap-1.5 text-[14px] font-medium text-white/85">
-              <Num fig={SUMMARY.projectCredit} animate={false} className="font-semibold text-white" /> лойиҳалар +
-              <Wheat size={14} />
-              <Num fig={SUMMARY.feedReserve} animate={false} className="font-semibold text-white" /> озуқа
+            <div className="mt-2 text-[15px] font-medium text-white/85">
+              банк кредити · <Num fig={f.bankPct} animate={false} className="font-semibold text-white" />% жамидан
             </div>
           </div>
         </div>
