@@ -115,6 +115,20 @@ export default function App() {
     }
   }, [go])
 
+  // A click anywhere on the slide goes to the next one. Buttons, links and chart bars
+  // keep their own action, and selecting text doesn't count as a click.
+  useEffect(() => {
+    if (printPreview) return
+    const onClick = (e: MouseEvent) => {
+      if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return
+      if (e.target instanceof Element && e.target.closest('button, a, input, select, textarea, [role="button"], [tabindex]')) return
+      if (window.getSelection()?.toString()) return
+      go(1)
+    }
+    window.addEventListener('click', onClick)
+    return () => window.removeEventListener('click', onClick)
+  }, [go, printPreview])
+
   // Printing: finish every animation so each page shows final numbers.
   useEffect(() => {
     const finish = () => {
