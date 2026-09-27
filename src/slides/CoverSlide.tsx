@@ -3,7 +3,7 @@ import { ArrowUpRight, Banknote, Drumstick, Egg, Factory, Landmark, MapPin, User
 import { DECK, SECTIONS, SUMMARY, type Fig, type SectionView } from '../data/deck'
 import { COVER_PHOTOS } from '../data/photos'
 import { Brand, Controls, type DeckControls } from '../components/Frame'
-import { Card, IconTile, JointVentureBanner, PhotoSlot, SectionLabel } from '../components/Blocks'
+import { Card, IconTile, PhotoSlot, SectionLabel } from '../components/Blocks'
 import { Donut } from '../components/Charts'
 import { FUNDS, SECTION_ICON } from '../components/icons'
 import { Num } from '../components/Num'
@@ -62,7 +62,6 @@ export function CoverSlide({ index, controls }: { index: number; controls: DeckC
         <div className="pt-7">
           <Brand />
         </div>
-        <JointVentureBanner />
         <div className="pt-7">
           <Controls index={index} controls={controls} />
         </div>
