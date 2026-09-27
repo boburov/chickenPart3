@@ -1,0 +1,2802 @@
+{
+  "meta": {
+    "source": "data/Смета БХП.xlsx",
+    "sha256": "ab1e67aa9dfa110682acc3207ee0b190ee784f944007a93323e10e3e4a0f26b8",
+    "extractedAt": "2026-09-27T20:49:16",
+    "company": "Барака Ҳамкор Парранда",
+    "year": "2026"
+  },
+  "broiler": {
+    "sheet": "броллер",
+    "title": {
+      "value": "\"Барака Ҳамкор Парранда\" хусусий корхонасининг Бройлер бўйича Кредитга бўлган талаб РЕЖАСИ",
+      "ref": "броллер!B2",
+      "sheetText": "\"Барака Хамкор Парранда\" хусусий корхонасининг Броллер бўйича Кредитга бўлган талаб\n РЕЖАСИ"
+    },
+    "units": {
+      "cost": "kUSD",
+      "birdsPerYear": "thousand birds",
+      "meat": "t",
+      "revenue": "kUSD"
+    },
+    "totals": {
+      "buildings": {
+        "value": 62,
+        "ref": "броллер!C7",
+        "formula": "=+C10+C13+C16+C19+C22+C23",
+        "sheetValue": 47,
+        "sumOf": [
+          "броллер!C10",
+          "броллер!C13",
+          "броллер!C16",
+          "броллер!C19",
+          "броллер!C22",
+          "броллер!C23",
+          "броллер!C24",
+          "броллер!C25"
+        ],
+        "note": "Sheet formula skips rows 24, 25; using the sum of all rows"
+      },
+      "birdsPerBuilding": {
+        "value": 565000,
+        "ref": "броллер!D7",
+        "formula": "=+D10+D13+D16+D19+D22+D23+D24+D25",
+        "hidden": true
+      },
+      "birdsPerYear": {
+        "value": 24060,
+        "ref": "броллер!E7",
+        "formula": "=+E10+E13+E16+E19+E22+E23+E24+E25"
+      },
+      "meat": {
+        "value": 60150,
+        "ref": "броллер!F7",
+        "formula": "=+F10+F13+F16+F19+F22+F23+F24+F25"
+      },
+      "revenue": {
+        "value": 108270,
+        "ref": "броллер!G7",
+        "formula": "=+G10+G13+G16+G19+G22+G23+G24+G25"
+      },
+      "country": {
+        "value": "Хитой",
+        "ref": "броллер!H7"
+      },
+      "cost": {
+        "total": {
+          "value": 21190,
+          "ref": "броллер!I7",
+          "formula": "=+I10+I13+I16+I19+I22+I24+I23+I25"
+        },
+        "construction": {
+          "value": 6950,
+          "ref": "броллер!J7",
+          "formula": "=+J10+J13+J16+J19+J22+J23+J24+J25"
+        },
+        "equipment": {
+          "value": 7150,
+          "ref": "броллер!K7",
+          "formula": "=+K10+K13+K16+K19+K22+K23+K24+K25"
+        },
+        "chickens": {
+          "value": 1533,
+          "ref": "броллер!L7",
+          "formula": "=+L10+L13+L16+L19+L22+L23+L24+L25"
+        },
+        "feed": {
+          "value": 5557,
+          "ref": "броллер!M7",
+          "formula": "=+M10+M13+M16+M19+M22+M23+M24+M25"
+        }
+      },
+      "own": {
+        "total": {
+          "value": 9490,
+          "ref": "броллер!I8",
+          "formula": "=+I11+I14+I17+I20+I26"
+        },
+        "construction": {
+          "value": 2400,
+          "ref": "броллер!J8",
+          "formula": "=+J11+J14+J17+J20+J26"
+        },
+        "equipment": {
+          "value": 0,
+          "ref": "броллер!K8",
+          "formula": "=+K11+K14+K17+K20+K26"
+        },
+        "chickens": {
+          "value": 1533,
+          "ref": "броллер!L8",
+          "formula": "=+L11+L14+L17+L20+L26"
+        },
+        "feed": {
+          "value": 5557,
+          "ref": "броллер!M8",
+          "formula": "=+M11+M14+M17+M20+M26"
+        }
+      },
+      "bank": {
+        "total": {
+          "value": 11700,
+          "ref": "броллер!I9",
+          "formula": "=+I12+I15+I18+I21+I27"
+        },
+        "construction": {
+          "value": 4550,
+          "ref": "броллер!J9",
+          "formula": "=+J12+J15+J18+J21+J27"
+        },
+        "equipment": {
+          "value": 7150,
+          "ref": "броллер!K9",
+          "formula": "=+K12+K15+K18+K21+K27"
+        },
+        "chickens": {
+          "value": 0,
+          "ref": "броллер!L9",
+          "formula": "=+L12+L15+L18+L21+L27"
+        },
+        "feed": {
+          "value": 0,
+          "ref": "броллер!M9",
+          "formula": "=+M12+M15+M18+M21+M27"
+        }
+      }
+    },
+    "existing": {
+      "buildings": 24,
+      "birdsPerYear": 6900,
+      "meat": 17250,
+      "revenue": 31050,
+      "refs": [
+        "броллер!F22",
+        "броллер!F23",
+        "броллер!F24"
+      ]
+    },
+    "project": {
+      "buildings": 38,
+      "birdsPerYear": 17160,
+      "meat": 42900,
+      "revenue": 77220,
+      "refs": [
+        "броллер!F10",
+        "броллер!F13",
+        "броллер!F16",
+        "броллер!F19",
+        "броллер!F25"
+      ]
+    },
+    "facilities": [
+      {
+        "district": "Жалақудуқ тумани",
+        "name": "1-фабрика",
+        "size": "100 × 18 м",
+        "nameRef": {
+          "value": "1-фабрика",
+          "ref": "броллер!B10",
+          "sheetText": "Жалақудуқ тумани 1-фабрика\n(бир бино ўлчами 100*18) "
+        },
+        "row": 10,
+        "status": "new",
+        "buildings": {
+          "value": 7,
+          "ref": "броллер!C10"
+        },
+        "birdsPerBuilding": {
+          "value": 80000,
+          "ref": "броллер!D10"
+        },
+        "birdsPerYear": {
+          "value": 3360,
+          "ref": "броллер!E10",
+          "formula": "=+D10*C10*6/1000"
+        },
+        "meat": {
+          "value": 8400,
+          "ref": "броллер!F10",
+          "formula": "=+E10*2.5"
+        },
+        "revenue": {
+          "value": 15120,
+          "ref": "броллер!G10",
+          "formula": "=+F10*1.8"
+        },
+        "supplier": {
+          "value": "Е-Фарминг, Хитой",
+          "ref": "броллер!H10",
+          "sheetText": "Е-Фарминг\nХитой"
+        },
+        "cost": {
+          "total": {
+            "value": 4500,
+            "ref": "броллер!I10",
+            "formula": "=+J10+K10+L10+M10"
+          },
+          "construction": {
+            "value": 1700,
+            "ref": "броллер!J10",
+            "formula": "=+J11++J12"
+          },
+          "equipment": {
+            "value": 1400,
+            "ref": "броллер!K10",
+            "formula": "=+K11+K12"
+          },
+          "chickens": {
+            "value": 300,
+            "ref": "броллер!L10",
+            "formula": "=+L11+L12"
+          },
+          "feed": {
+            "value": 1100,
+            "ref": "броллер!M10",
+            "formula": "=+M11+M12"
+          }
+        },
+        "own": {
+          "total": {
+            "value": 2000,
+            "ref": "броллер!I11",
+            "formula": "=+J11+K11+L11+M11"
+          },
+          "construction": {
+            "value": 600,
+            "ref": "броллер!J11"
+          },
+          "equipment": {
+            "value": null,
+            "ref": "броллер!K11"
+          },
+          "chickens": {
+            "value": 300,
+            "ref": "броллер!L11"
+          },
+          "feed": {
+            "value": 1100,
+            "ref": "броллер!M11"
+          }
+        },
+        "bank": {
+          "total": {
+            "value": 2500,
+            "ref": "броллер!I12",
+            "formula": "=+J12+K12"
+          },
+          "construction": {
+            "value": 1100,
+            "ref": "броллер!J12"
+          },
+          "equipment": {
+            "value": 1400,
+            "ref": "броллер!K12"
+          },
+          "chickens": {
+            "value": null,
+            "ref": "броллер!L12"
+          },
+          "feed": {
+            "value": null,
+            "ref": "броллер!M12"
+          }
+        }
+      },
+      {
+        "district": "Жалақудуқ тумани",
+        "name": "2-фабрика",
+        "size": "100 × 18 м",
+        "nameRef": {
+          "value": "2-фабрика",
+          "ref": "броллер!B13",
+          "sheetText": "Жалақудуқ тумани 2-фабрика\n(бир бино ўлчами 100*18) "
+        },
+        "row": 13,
+        "status": "new",
+        "buildings": {
+          "value": 8,
+          "ref": "броллер!C13"
+        },
+        "birdsPerBuilding": {
+          "value": 80000,
+          "ref": "броллер!D13"
+        },
+        "birdsPerYear": {
+          "value": 3840,
+          "ref": "броллер!E13",
+          "formula": "=+D13*C13*6/1000"
+        },
+        "meat": {
+          "value": 9600,
+          "ref": "броллер!F13",
+          "formula": "=+E13*2.5"
+        },
+        "revenue": {
+          "value": 17280,
+          "ref": "броллер!G13",
+          "formula": "=+F13*1.8"
+        },
+        "supplier": {
+          "value": "Е-Фарминг, Хитой",
+          "ref": "броллер!H13",
+          "sheetText": "Е-Фарминг\nХитой"
+        },
+        "cost": {
+          "total": {
+            "value": 5050,
+            "ref": "броллер!I13",
+            "formula": "=+J13+K13+L13+M13"
+          },
+          "construction": {
+            "value": 1850,
+            "ref": "броллер!J13",
+            "formula": "=+J14+J15"
+          },
+          "equipment": {
+            "value": 1600,
+            "ref": "броллер!K13",
+            "formula": "=+K14+K15"
+          },
+          "chickens": {
+            "value": 343,
+            "ref": "броллер!L13",
+            "formula": "=+L14+L15"
+          },
+          "feed": {
+            "value": 1257,
+            "ref": "броллер!M13",
+            "formula": "=+M14+M15"
+          }
+        },
+        "own": {
+          "total": {
+            "value": 2200,
+            "ref": "броллер!I14",
+            "formula": "=+J14+K14+L14+M14"
+          },
+          "construction": {
+            "value": 600,
+            "ref": "броллер!J14"
+          },
+          "equipment": {
+            "value": 0,
+            "ref": "броллер!K14"
+          },
+          "chickens": {
+            "value": 343,
+            "ref": "броллер!L14"
+          },
+          "feed": {
+            "value": 1257,
+            "ref": "броллер!M14"
+          }
+        },
+        "bank": {
+          "total": {
+            "value": 2850,
+            "ref": "броллер!I15",
+            "formula": "=+J15+K15+L15+M15"
+          },
+          "construction": {
+            "value": 1250,
+            "ref": "броллер!J15"
+          },
+          "equipment": {
+            "value": 1600,
+            "ref": "броллер!K15"
+          },
+          "chickens": {
+            "value": 0,
+            "ref": "броллер!L15"
+          },
+          "feed": {
+            "value": 0,
+            "ref": "броллер!M15"
+          }
+        }
+      },
+      {
+        "district": "Жалақудуқ тумани",
+        "name": "3-фабрика",
+        "size": "100 × 18 м",
+        "nameRef": {
+          "value": "3-фабрика",
+          "ref": "броллер!B16",
+          "sheetText": "Жалақудуқ тумани 3-фабрика\n(бир бино ўлчами 100*18) "
+        },
+        "row": 16,
+        "status": "new",
+        "buildings": {
+          "value": 7,
+          "ref": "броллер!C16"
+        },
+        "birdsPerBuilding": {
+          "value": 80000,
+          "ref": "броллер!D16"
+        },
+        "birdsPerYear": {
+          "value": 3360,
+          "ref": "броллер!E16",
+          "formula": "=+D16*C16*6/1000"
+        },
+        "meat": {
+          "value": 8400,
+          "ref": "броллер!F16",
+          "formula": "=+E16*2.5"
+        },
+        "revenue": {
+          "value": 15120,
+          "ref": "броллер!G16",
+          "formula": "=+F16*1.8"
+        },
+        "supplier": {
+          "value": "Е-Фарминг, Хитой",
+          "ref": "броллер!H16",
+          "sheetText": "Е-Фарминг\nХитой"
+        },
+        "cost": {
+          "total": {
+            "value": 4500,
+            "ref": "броллер!I16",
+            "formula": "=+I17+I18"
+          },
+          "construction": {
+            "value": 1700,
+            "ref": "броллер!J16",
+            "formula": "=+J17+J18"
+          },
+          "equipment": {
+            "value": 1400,
+            "ref": "броллер!K16",
+            "formula": "=+K17+K18"
+          },
+          "chickens": {
+            "value": 300,
+            "ref": "броллер!L16",
+            "formula": "=+L17+L18"
+          },
+          "feed": {
+            "value": 1100,
+            "ref": "броллер!M16",
+            "formula": "=+M17+M18"
+          }
+        },
+        "own": {
+          "total": {
+            "value": 2000,
+            "ref": "броллер!I17",
+            "formula": "=+J17+K17+L17+M17"
+          },
+          "construction": {
+            "value": 600,
+            "ref": "броллер!J17"
+          },
+          "equipment": {
+            "value": null,
+            "ref": "броллер!K17"
+          },
+          "chickens": {
+            "value": 300,
+            "ref": "броллер!L17"
+          },
+          "feed": {
+            "value": 1100,
+            "ref": "броллер!M17"
+          }
+        },
+        "bank": {
+          "total": {
+            "value": 2500,
+            "ref": "броллер!I18",
+            "formula": "=+J18+K18"
+          },
+          "construction": {
+            "value": 1100,
+            "ref": "броллер!J18"
+          },
+          "equipment": {
+            "value": 1400,
+            "ref": "броллер!K18"
+          },
+          "chickens": {
+            "value": null,
+            "ref": "броллер!L18"
+          },
+          "feed": {
+            "value": null,
+            "ref": "броллер!M18"
+          }
+        }
+      },
+      {
+        "district": "Жалақудуқ тумани",
+        "name": "4-фабрика",
+        "size": "100 × 18 м",
+        "nameRef": {
+          "value": "4-фабрика",
+          "ref": "броллер!B19",
+          "sheetText": "Жалақудуқ тумани 4-фабрика\n(бир бино ўлчами 100*18) "
+        },
+        "row": 19,
+        "status": "new",
+        "buildings": {
+          "value": 7,
+          "ref": "броллер!C19"
+        },
+        "birdsPerBuilding": {
+          "value": 80000,
+          "ref": "броллер!D19"
+        },
+        "birdsPerYear": {
+          "value": 3360,
+          "ref": "броллер!E19",
+          "formula": "=+D19*C19*6/1000"
+        },
+        "meat": {
+          "value": 8400,
+          "ref": "броллер!F19",
+          "formula": "=+E19*2.5"
+        },
+        "revenue": {
+          "value": 15120,
+          "ref": "броллер!G19",
+          "formula": "=+F19*1.8"
+        },
+        "supplier": {
+          "value": "Е-Фарминг, Хитой",
+          "ref": "броллер!H19",
+          "sheetText": "Е-Фарминг\nХитой"
+        },
+        "cost": {
+          "total": {
+            "value": 4500,
+            "ref": "броллер!I19",
+            "formula": "=+I20+I21"
+          },
+          "construction": {
+            "value": 1700,
+            "ref": "броллер!J19",
+            "formula": "=+J21+J20"
+          },
+          "equipment": {
+            "value": 1400,
+            "ref": "броллер!K19",
+            "formula": "=+K21+K20"
+          },
+          "chickens": {
+            "value": 300,
+            "ref": "броллер!L19",
+            "formula": "=+L21+L20"
+          },
+          "feed": {
+            "value": 1100,
+            "ref": "броллер!M19",
+            "formula": "=+M21+M20"
+          }
+        },
+        "own": {
+          "total": {
+            "value": 2000,
+            "ref": "броллер!I20",
+            "formula": "=+J20+K20+L20+M20"
+          },
+          "construction": {
+            "value": 600,
+            "ref": "броллер!J20"
+          },
+          "equipment": {
+            "value": null,
+            "ref": "броллер!K20"
+          },
+          "chickens": {
+            "value": 300,
+            "ref": "броллер!L20"
+          },
+          "feed": {
+            "value": 1100,
+            "ref": "броллер!M20"
+          }
+        },
+        "bank": {
+          "total": {
+            "value": 2500,
+            "ref": "броллер!I21",
+            "formula": "=+J21+K21"
+          },
+          "construction": {
+            "value": 1100,
+            "ref": "броллер!J21"
+          },
+          "equipment": {
+            "value": 1400,
+            "ref": "броллер!K21"
+          },
+          "chickens": {
+            "value": null,
+            "ref": "броллер!L21"
+          },
+          "feed": {
+            "value": null,
+            "ref": "броллер!M21"
+          }
+        }
+      },
+      {
+        "district": "Асака тумани",
+        "name": "2-фабрика",
+        "size": "100 × 18 м",
+        "nameRef": {
+          "value": "2-фабрика",
+          "ref": "броллер!B22",
+          "sheetText": "Асака тумани 2-фабрика\n(бир бино ўлчами 100*18) "
+        },
+        "row": 22,
+        "status": "existing",
+        "buildings": {
+          "value": 4,
+          "ref": "броллер!C22"
+        },
+        "birdsPerBuilding": {
+          "value": 80000,
+          "ref": "броллер!D22"
+        },
+        "birdsPerYear": {
+          "value": 1920,
+          "ref": "броллер!E22",
+          "formula": "=+D22*C22*6/1000"
+        },
+        "meat": {
+          "value": 4800,
+          "ref": "броллер!F22",
+          "formula": "=+E22*2.5"
+        },
+        "revenue": {
+          "value": 8640,
+          "ref": "броллер!G22",
+          "formula": "=+F22*1.8"
+        },
+        "supplier": {
+          "value": "мавжуд",
+          "ref": "броллер!H22"
+        }
+      },
+      {
+        "district": "Асака тумани",
+        "name": "2-фабрика, ер усулда",
+        "size": null,
+        "nameRef": {
+          "value": "2-фабрика, ер усулда",
+          "ref": "броллер!B23",
+          "sheetText": "Асака тумани 2-фабрика ер усулда боқилади "
+        },
+        "row": 23,
+        "status": "existing",
+        "buildings": {
+          "value": 14,
+          "ref": "броллер!C23"
+        },
+        "birdsPerBuilding": {
+          "value": 25000,
+          "ref": "броллер!D23"
+        },
+        "birdsPerYear": {
+          "value": 2100,
+          "ref": "броллер!E23",
+          "formula": "=+D23*C23*6/1000"
+        },
+        "meat": {
+          "value": 5250,
+          "ref": "броллер!F23",
+          "formula": "=+E23*2.5"
+        },
+        "revenue": {
+          "value": 9450,
+          "ref": "броллер!G23",
+          "formula": "=+F23*1.8"
+        },
+        "supplier": {
+          "value": "мавжуд",
+          "ref": "броллер!H23"
+        }
+      },
+      {
+        "district": "Асака тумани",
+        "name": "5-фабрика",
+        "size": "100 × 18 м",
+        "nameRef": {
+          "value": "5-фабрика",
+          "ref": "броллер!B24",
+          "sheetText": "Асака тумани 5-фабрика\n(бир бино ўлчами 100*18) "
+        },
+        "row": 24,
+        "status": "existing",
+        "buildings": {
+          "value": 6,
+          "ref": "броллер!C24"
+        },
+        "birdsPerBuilding": {
+          "value": 80000,
+          "ref": "броллер!D24"
+        },
+        "birdsPerYear": {
+          "value": 2880,
+          "ref": "броллер!E24",
+          "formula": "=+D24*C24*6/1000"
+        },
+        "meat": {
+          "value": 7200,
+          "ref": "броллер!F24",
+          "formula": "=+E24*2.5"
+        },
+        "revenue": {
+          "value": 12960,
+          "ref": "броллер!G24",
+          "formula": "=+F24*1.8"
+        },
+        "supplier": {
+          "value": "мавжуд",
+          "ref": "броллер!H24"
+        }
+      },
+      {
+        "district": "Асака тумани",
+        "name": "4-фабрика",
+        "size": "72 × 18 м",
+        "nameRef": {
+          "value": "4-фабрика",
+          "ref": "броллер!B25",
+          "sheetText": "Асака тумани 4-фабрика\n(бир бино ўлчами 72*18) "
+        },
+        "row": 25,
+        "status": "reequip",
+        "buildings": {
+          "value": 9,
+          "ref": "броллер!C25"
+        },
+        "birdsPerBuilding": {
+          "value": 60000,
+          "ref": "броллер!D25"
+        },
+        "birdsPerYear": {
+          "value": 3240,
+          "ref": "броллер!E25",
+          "formula": "=+D25*C25*6/1000"
+        },
+        "meat": {
+          "value": 8100,
+          "ref": "броллер!F25",
+          "formula": "=+E25*2.5"
+        },
+        "revenue": {
+          "value": 14580,
+          "ref": "броллер!G25",
+          "formula": "=+F25*1.8"
+        },
+        "supplier": {
+          "value": "Е-Фарминг, Хитой",
+          "ref": "броллер!H25",
+          "sheetText": "Е-Фарминг\nХитой"
+        },
+        "cost": {
+          "total": {
+            "value": 2640,
+            "ref": "броллер!I25",
+            "formula": "=+I26+I27"
+          },
+          "construction": {
+            "value": 0,
+            "ref": "броллер!J25",
+            "formula": "=+J26+J27"
+          },
+          "equipment": {
+            "value": 1350,
+            "ref": "броллер!K25",
+            "formula": "=+K26+K27"
+          },
+          "chickens": {
+            "value": 290,
+            "ref": "броллер!L25",
+            "formula": "=+L26+L27"
+          },
+          "feed": {
+            "value": 1000,
+            "ref": "броллер!M25",
+            "formula": "=+M26+M27"
+          }
+        },
+        "own": {
+          "total": {
+            "value": 1290,
+            "ref": "броллер!I26",
+            "formula": "=+J26+K26+L26+M26"
+          },
+          "construction": {
+            "value": null,
+            "ref": "броллер!J26"
+          },
+          "equipment": {
+            "value": null,
+            "ref": "броллер!K26"
+          },
+          "chickens": {
+            "value": 290,
+            "ref": "броллер!L26"
+          },
+          "feed": {
+            "value": 1000,
+            "ref": "броллер!M26"
+          }
+        },
+        "bank": {
+          "total": {
+            "value": 1350,
+            "ref": "броллер!I27",
+            "formula": "=+J27+K27"
+          },
+          "construction": {
+            "value": null,
+            "ref": "броллер!J27"
+          },
+          "equipment": {
+            "value": 1350,
+            "ref": "броллер!K27",
+            "formula": "=9*150"
+          },
+          "chickens": {
+            "value": null,
+            "ref": "броллер!L27"
+          },
+          "feed": {
+            "value": null,
+            "ref": "броллер!M27"
+          }
+        }
+      }
+    ]
+  },
+  "eggs": {
+    "sheet": "тухум1",
+    "title": {
+      "value": "\"Барака Ҳамкор Парранда\" хусусий корхонасининг Тухум йўналиши бўйича Кредитга бўлган талаб РЕЖАСИ",
+      "ref": "тухум1!B2",
+      "sheetText": "\"Барака Хамкор Парранда\" хусусий корхонасининг Тухум йўналиши бўйича \nКредитга бўлган талаб\n РЕЖАСИ"
+    },
+    "units": {
+      "cost": "kUSD",
+      "hens": "thousand heads",
+      "eggs": "thousand eggs",
+      "revenue": "kUSD"
+    },
+    "totals": {
+      "buildings": {
+        "value": 24,
+        "ref": "тухум1!C7",
+        "formula": "=+C10+C13+C16+C19+C22"
+      },
+      "hensPerBuilding": {
+        "value": 490000,
+        "ref": "тухум1!D7",
+        "formula": "=+D10+D13+D16+D19+D22",
+        "hidden": true
+      },
+      "hens": {
+        "value": 1880,
+        "ref": "тухум1!E7",
+        "formula": "=+E10+E13+E16+E19+E22"
+      },
+      "tableEggs": {
+        "value": 417990,
+        "ref": "тухум1!F7",
+        "formula": "=+F10+F13+F16+F19",
+        "note": "Table eggs: rows 10–19. The parent flock's eggs (row 22) are shown separately."
+      },
+      "parentEggs": {
+        "value": 17520,
+        "sumOf": [
+          "тухум1!F22"
+        ]
+      },
+      "revenue": {
+        "value": 42400,
+        "ref": "тухум1!G7",
+        "formula": "=+G10+G13+G16+G19+G22",
+        "note": "Includes the parent flock (row 22)"
+      },
+      "country": {
+        "value": "Хитой",
+        "ref": "тухум1!H7"
+      },
+      "cost": {
+        "total": {
+          "value": 18030,
+          "ref": "тухум1!I7",
+          "formula": "=+I10+I13+I16+I19+I22"
+        },
+        "construction": {
+          "value": 2600,
+          "ref": "тухум1!J7",
+          "formula": "=+J10+J13+J16+J19+J22"
+        },
+        "equipment": {
+          "value": 7310,
+          "ref": "тухум1!K7",
+          "formula": "=+K10+K13+K16+K19+K22"
+        },
+        "chickens": {
+          "value": 7630,
+          "ref": "тухум1!L7",
+          "formula": "=+L10+L13+L16+L19+L22"
+        },
+        "feed": {
+          "value": 490,
+          "ref": "тухум1!M7",
+          "formula": "=+M10+M13+M16+M19+M22"
+        }
+      },
+      "own": {
+        "total": {
+          "value": 2890,
+          "ref": "тухум1!I8",
+          "formula": "=+J8+K8+L8+M8"
+        },
+        "construction": {
+          "value": 0,
+          "ref": "тухум1!J8",
+          "formula": "=+J11+J14+J17+J20+J23"
+        },
+        "equipment": {
+          "value": 2400,
+          "ref": "тухум1!K8",
+          "formula": "=+K11+K14+K17+K20+K23"
+        },
+        "chickens": {
+          "value": 0,
+          "ref": "тухум1!L8",
+          "formula": "=+L11+L14+L17+L20+L23"
+        },
+        "feed": {
+          "value": 490,
+          "ref": "тухум1!M8",
+          "formula": "=+M11+M14+M17+M20+M23"
+        }
+      },
+      "bank": {
+        "total": {
+          "value": 15140,
+          "ref": "тухум1!I9",
+          "formula": "=+J9+K9+L9+M9"
+        },
+        "construction": {
+          "value": 2600,
+          "ref": "тухум1!J9",
+          "formula": "=+J12+J15+J18+J21+J24"
+        },
+        "equipment": {
+          "value": 4910,
+          "ref": "тухум1!K9",
+          "formula": "=+K12+K15+K18+K21+K24"
+        },
+        "chickens": {
+          "value": 7630,
+          "ref": "тухум1!L9",
+          "formula": "=+L12+L15+L18+L21+L24"
+        },
+        "feed": {
+          "value": 0,
+          "ref": "тухум1!M9",
+          "formula": "=+M12+M15+M18+M21+M24"
+        }
+      }
+    },
+    "facilities": [
+      {
+        "district": "Хўжаобод тумани",
+        "name": "1-фабрика",
+        "size": "110 × 18 м",
+        "kind": "layer",
+        "nameRef": {
+          "value": "1-фабрика",
+          "ref": "тухум1!B10",
+          "sheetText": "Хўжаобод тумани \n1-фабрика\n(бир бино ўлчами 110*18) "
+        },
+        "row": 10,
+        "buildings": {
+          "value": 3,
+          "ref": "тухум1!C10"
+        },
+        "hensPerBuilding": {
+          "value": 150000,
+          "ref": "тухум1!D10"
+        },
+        "hens": {
+          "value": 450,
+          "ref": "тухум1!E10",
+          "formula": "=450000/1000"
+        },
+        "eggs": {
+          "value": 139330,
+          "ref": "тухум1!F10",
+          "formula": "=139330000/1000"
+        },
+        "revenue": {
+          "value": 11600,
+          "ref": "тухум1!G10"
+        },
+        "supplier": {
+          "value": "Е-Фарминг, Хитой",
+          "ref": "тухум1!H10",
+          "sheetText": "Е-Фарминг\nХитой"
+        },
+        "cost": {
+          "total": {
+            "value": 4450,
+            "ref": "тухум1!I10",
+            "formula": "=+J10+K10+L10+M10"
+          },
+          "construction": {
+            "value": 500,
+            "ref": "тухум1!J10",
+            "formula": "=+J11+J12"
+          },
+          "equipment": {
+            "value": 1700,
+            "ref": "тухум1!K10",
+            "formula": "=+K11+K12"
+          },
+          "chickens": {
+            "value": 2250,
+            "ref": "тухум1!L10",
+            "formula": "=+L11+L12"
+          },
+          "feed": {
+            "value": 0,
+            "ref": "тухум1!M10",
+            "formula": "=+M11+M12"
+          }
+        },
+        "own": {
+          "total": {
+            "value": 0,
+            "ref": "тухум1!I11",
+            "formula": "=+J11+K11+L11+M11"
+          },
+          "construction": {
+            "value": null,
+            "ref": "тухум1!J11"
+          },
+          "equipment": {
+            "value": null,
+            "ref": "тухум1!K11"
+          },
+          "chickens": {
+            "value": null,
+            "ref": "тухум1!L11"
+          },
+          "feed": {
+            "value": null,
+            "ref": "тухум1!M11"
+          }
+        },
+        "bank": {
+          "total": {
+            "value": 4450,
+            "ref": "тухум1!I12",
+            "formula": "=+J12+K12+L12+M12"
+          },
+          "construction": {
+            "value": 500,
+            "ref": "тухум1!J12"
+          },
+          "equipment": {
+            "value": 1700,
+            "ref": "тухум1!K12"
+          },
+          "chickens": {
+            "value": 2250,
+            "ref": "тухум1!L12"
+          },
+          "feed": {
+            "value": null,
+            "ref": "тухум1!M12"
+          }
+        }
+      },
+      {
+        "district": "Хўжаобод тумани",
+        "name": "2-фабрика",
+        "size": "110 × 18 м",
+        "kind": "layer",
+        "nameRef": {
+          "value": "2-фабрика",
+          "ref": "тухум1!B13",
+          "sheetText": "Хўжаобод тумани\n 2-фабрика\n(бир бино ўлчами 110*18) "
+        },
+        "row": 13,
+        "buildings": {
+          "value": 3,
+          "ref": "тухум1!C13"
+        },
+        "hensPerBuilding": {
+          "value": 150000,
+          "ref": "тухум1!D13"
+        },
+        "hens": {
+          "value": 450,
+          "ref": "тухум1!E13",
+          "formula": "=450000/1000"
+        },
+        "eggs": {
+          "value": 139330,
+          "ref": "тухум1!F13",
+          "formula": "=139330000/1000"
+        },
+        "revenue": {
+          "value": 11600,
+          "ref": "тухум1!G13"
+        },
+        "supplier": {
+          "value": "Е-Фарминг, Хитой",
+          "ref": "тухум1!H13",
+          "sheetText": "Е-Фарминг\nХитой"
+        },
+        "cost": {
+          "total": {
+            "value": 4450,
+            "ref": "тухум1!I13",
+            "formula": "=+J13+K13+L13+M13"
+          },
+          "construction": {
+            "value": 500,
+            "ref": "тухум1!J13",
+            "formula": "=+J14+J15"
+          },
+          "equipment": {
+            "value": 1700,
+            "ref": "тухум1!K13",
+            "formula": "=+K14+K15"
+          },
+          "chickens": {
+            "value": 2250,
+            "ref": "тухум1!L13",
+            "formula": "=+L14+L15"
+          },
+          "feed": {
+            "value": 0,
+            "ref": "тухум1!M13",
+            "formula": "=+M14+M15"
+          }
+        },
+        "own": {
+          "total": {
+            "value": 0,
+            "ref": "тухум1!I14",
+            "formula": "=+J14+K14+L14+M14"
+          },
+          "construction": {
+            "value": null,
+            "ref": "тухум1!J14"
+          },
+          "equipment": {
+            "value": null,
+            "ref": "тухум1!K14"
+          },
+          "chickens": {
+            "value": null,
+            "ref": "тухум1!L14"
+          },
+          "feed": {
+            "value": null,
+            "ref": "тухум1!M14"
+          }
+        },
+        "bank": {
+          "total": {
+            "value": 4450,
+            "ref": "тухум1!I15",
+            "formula": "=+J15+K15+L15+M15"
+          },
+          "construction": {
+            "value": 500,
+            "ref": "тухум1!J15"
+          },
+          "equipment": {
+            "value": 1700,
+            "ref": "тухум1!K15"
+          },
+          "chickens": {
+            "value": 2250,
+            "ref": "тухум1!L15"
+          },
+          "feed": {
+            "value": null,
+            "ref": "тухум1!M15"
+          }
+        }
+      },
+      {
+        "district": "Хўжаобод тумани",
+        "name": "3-фабрика",
+        "size": "110 × 18 м",
+        "kind": "layer",
+        "nameRef": {
+          "value": "3-фабрика",
+          "ref": "тухум1!B16",
+          "sheetText": "Хўжаобод тумани\n 3-фабрика\n(бир бино ўлчами 110*18) "
+        },
+        "row": 16,
+        "buildings": {
+          "value": 5,
+          "ref": "тухум1!C16"
+        },
+        "hensPerBuilding": {
+          "value": 90000,
+          "ref": "тухум1!D16"
+        },
+        "hens": {
+          "value": 450,
+          "ref": "тухум1!E16",
+          "formula": "=450000/1000"
+        },
+        "eggs": {
+          "value": 139330,
+          "ref": "тухум1!F16",
+          "formula": "=139330000/1000"
+        },
+        "revenue": {
+          "value": 11600,
+          "ref": "тухум1!G16"
+        },
+        "supplier": {
+          "value": "Е-Фарминг, Хитой",
+          "ref": "тухум1!H16",
+          "sheetText": "Е-Фарминг\nХитой"
+        },
+        "cost": {
+          "total": {
+            "value": 4850,
+            "ref": "тухум1!I16",
+            "formula": "=+J16+K16+L16+M16"
+          },
+          "construction": {
+            "value": 800,
+            "ref": "тухум1!J16",
+            "formula": "=+J17+J18"
+          },
+          "equipment": {
+            "value": 1800,
+            "ref": "тухум1!K16",
+            "formula": "=+K17+K18"
+          },
+          "chickens": {
+            "value": 2250,
+            "ref": "тухум1!L16",
+            "formula": "=+L17+L18"
+          },
+          "feed": {
+            "value": 0,
+            "ref": "тухум1!M16",
+            "formula": "=+M17+M18"
+          }
+        },
+        "own": {
+          "total": {
+            "value": 1800,
+            "ref": "тухум1!I17",
+            "formula": "=+J17+K17+L17+M17"
+          },
+          "construction": {
+            "value": null,
+            "ref": "тухум1!J17"
+          },
+          "equipment": {
+            "value": 1800,
+            "ref": "тухум1!K17"
+          },
+          "chickens": {
+            "value": null,
+            "ref": "тухум1!L17"
+          },
+          "feed": {
+            "value": null,
+            "ref": "тухум1!M17"
+          }
+        },
+        "bank": {
+          "total": {
+            "value": 3050,
+            "ref": "тухум1!I18",
+            "formula": "=+J18+K18+L18+M18"
+          },
+          "construction": {
+            "value": 800,
+            "ref": "тухум1!J18"
+          },
+          "equipment": {
+            "value": null,
+            "ref": "тухум1!K18"
+          },
+          "chickens": {
+            "value": 2250,
+            "ref": "тухум1!L18"
+          },
+          "feed": {
+            "value": null,
+            "ref": "тухум1!M18"
+          }
+        }
+      },
+      {
+        "district": "Хўжаобод тумани",
+        "name": "4-фабрика — рем молодняк",
+        "size": "100 × 18 м",
+        "kind": "pullets",
+        "nameRef": {
+          "value": "4-фабрика — рем молодняк",
+          "ref": "тухум1!B19",
+          "sheetText": "Хўжаобод тумани \n4-фабрика\nРем молодняк (бир бино ўлчами 100*18) "
+        },
+        "row": 19,
+        "buildings": {
+          "value": 5,
+          "ref": "тухум1!C19"
+        },
+        "hensPerBuilding": {
+          "value": 90000,
+          "ref": "тухум1!D19"
+        },
+        "hens": {
+          "value": 450,
+          "ref": "тухум1!E19",
+          "formula": "=450000/1000"
+        },
+        "eggs": {
+          "value": 0,
+          "ref": "тухум1!F19",
+          "formula": "=-G19"
+        },
+        "revenue": {
+          "value": 0,
+          "ref": "тухум1!G19"
+        },
+        "supplier": {
+          "value": "Е-Фарминг, Хитой",
+          "ref": "тухум1!H19",
+          "sheetText": "Е-Фарминг\nХитой"
+        },
+        "cost": {
+          "total": {
+            "value": 2350,
+            "ref": "тухум1!I19",
+            "formula": "=+J19+K19+L19+M19"
+          },
+          "construction": {
+            "value": 800,
+            "ref": "тухум1!J19",
+            "formula": "=+J20+J21"
+          },
+          "equipment": {
+            "value": 1550,
+            "ref": "тухум1!K19",
+            "formula": "=+K20+K21"
+          },
+          "chickens": {
+            "value": 0,
+            "ref": "тухум1!L19",
+            "formula": "=+L20+L21"
+          },
+          "feed": {
+            "value": 0,
+            "ref": "тухум1!M19",
+            "formula": "=+M20+M21"
+          }
+        },
+        "own": {
+          "total": {
+            "value": 600,
+            "ref": "тухум1!I20",
+            "formula": "=+J20+K20+L20+M20"
+          },
+          "construction": {
+            "value": null,
+            "ref": "тухум1!J20"
+          },
+          "equipment": {
+            "value": 600,
+            "ref": "тухум1!K20"
+          },
+          "chickens": {
+            "value": null,
+            "ref": "тухум1!L20"
+          },
+          "feed": {
+            "value": null,
+            "ref": "тухум1!M20"
+          }
+        },
+        "bank": {
+          "total": {
+            "value": 1750,
+            "ref": "тухум1!I21",
+            "formula": "=+J21+K21+L21+M21"
+          },
+          "construction": {
+            "value": 800,
+            "ref": "тухум1!J21"
+          },
+          "equipment": {
+            "value": 950,
+            "ref": "тухум1!K21"
+          },
+          "chickens": {
+            "value": null,
+            "ref": "тухум1!L21"
+          },
+          "feed": {
+            "value": null,
+            "ref": "тухум1!M21"
+          }
+        }
+      },
+      {
+        "district": "Хўжаобод тумани",
+        "name": "5-фабрика — родитель (гўшт йўналиши)",
+        "size": "100 × 18 м",
+        "kind": "parent",
+        "nameRef": {
+          "value": "5-фабрика — родитель (гўшт йўналиши)",
+          "ref": "тухум1!B22",
+          "sheetText": "Хўжаобод тумани \n5-фабрика\nРодитель гўшт йўналишида (бир бино ўлчами 100*18) "
+        },
+        "row": 22,
+        "buildings": {
+          "value": 8,
+          "ref": "тухум1!C22"
+        },
+        "hensPerBuilding": {
+          "value": 10000,
+          "ref": "тухум1!D22"
+        },
+        "hens": {
+          "value": 80,
+          "ref": "тухум1!E22",
+          "formula": "=80000/1000"
+        },
+        "eggs": {
+          "value": 17520,
+          "ref": "тухум1!F22"
+        },
+        "revenue": {
+          "value": 7600,
+          "ref": "тухум1!G22"
+        },
+        "supplier": {
+          "value": "Е-Фарминг, Хитой",
+          "ref": "тухум1!H22",
+          "sheetText": "Е-Фарминг\nХитой"
+        },
+        "cost": {
+          "total": {
+            "value": 1930,
+            "ref": "тухум1!I22",
+            "formula": "=+J22+K22+L22+M22"
+          },
+          "construction": {
+            "value": 0,
+            "ref": "тухум1!J22",
+            "formula": "=+J23+J24"
+          },
+          "equipment": {
+            "value": 560,
+            "ref": "тухум1!K22",
+            "formula": "=+K23+K24"
+          },
+          "chickens": {
+            "value": 880,
+            "ref": "тухум1!L22",
+            "formula": "=+L23+L24"
+          },
+          "feed": {
+            "value": 490,
+            "ref": "тухум1!M22",
+            "formula": "=+M23+M24"
+          }
+        },
+        "own": {
+          "total": {
+            "value": 490,
+            "ref": "тухум1!I23",
+            "formula": "=+J23+K23+L23+M23"
+          },
+          "construction": {
+            "value": null,
+            "ref": "тухум1!J23"
+          },
+          "equipment": {
+            "value": null,
+            "ref": "тухум1!K23"
+          },
+          "chickens": {
+            "value": null,
+            "ref": "тухум1!L23"
+          },
+          "feed": {
+            "value": 490,
+            "ref": "тухум1!M23"
+          }
+        },
+        "bank": {
+          "total": {
+            "value": 1440,
+            "ref": "тухум1!I24",
+            "formula": "=+J24+K24+L24+M24"
+          },
+          "construction": {
+            "value": null,
+            "ref": "тухум1!J24"
+          },
+          "equipment": {
+            "value": 560,
+            "ref": "тухум1!K24"
+          },
+          "chickens": {
+            "value": 880,
+            "ref": "тухум1!L24"
+          },
+          "feed": {
+            "value": null,
+            "ref": "тухум1!M24"
+          }
+        }
+      }
+    ]
+  },
+  "processing": {
+    "sheet": "дастгох",
+    "title": {
+      "value": "\"Барака Ҳамкор Парранда\" хусусий корхонасининг дастгоҳ йўналиши бўйича Кредитга бўлган талаб РЕЖАСИ",
+      "ref": "дастгох!B2",
+      "sheetText": "\"Барака Хамкор Парранда\" хусусий корхонасининг дастгоҳ йўналиши бўйича Кредитга бўлган талаб  РЕЖАСИ"
+    },
+    "units": {
+      "cost": "kUSD"
+    },
+    "groups": {
+      "slaughter": "Сўйиш, совитиш ва қадоқлаш",
+      "feedmill": "Ем завод",
+      "transport": "Махсус транспорт",
+      "cold": "Музлаткич"
+    },
+    "lineCapacity": {
+      "value": 6000,
+      "ref": "дастгох!D10",
+      "note": "Birds per hour: slaughter, evisceration and chilling are one 6 000/h line"
+    },
+    "totals": {
+      "count": {
+        "value": 8,
+        "ref": "дастгох!C7",
+        "formula": "=+C10+C13+C16+C19+C22+C23",
+        "hidden": true
+      },
+      "perHour": {
+        "value": 18000,
+        "ref": "дастгох!D7",
+        "formula": "=+D10+D13+D16+D19+D22+D23",
+        "hidden": true
+      },
+      "country": {
+        "value": "Хитой",
+        "ref": "дастгох!E7"
+      },
+      "cost": {
+        "total": {
+          "value": 4610,
+          "ref": "дастгох!F7",
+          "formula": "=+G7+H7"
+        },
+        "construction": {
+          "value": 400,
+          "ref": "дастгох!G7",
+          "formula": "=+G10+G13+G16+G19+G22+G25+G28+G31+G34"
+        },
+        "equipment": {
+          "value": 4210,
+          "ref": "дастгох!H7",
+          "formula": "=+H10+H13+H16+H19+H22+H25+H28+H31+H34"
+        },
+        "chickens": null,
+        "feed": null
+      },
+      "own": {
+        "total": {
+          "value": 400,
+          "ref": "дастгох!F8",
+          "formula": "=+F11+F14+F17+F20+F23+F26+F29+F32+F35"
+        },
+        "construction": {
+          "value": 400,
+          "ref": "дастгох!G8",
+          "formula": "=+G11+G14+G17+G20+G23+G26+G29+G32+G35"
+        },
+        "equipment": {
+          "value": 0,
+          "ref": "дастгох!H8",
+          "formula": "=+H11+H14+H17+H20+H23+H26+H29+H32+H35"
+        },
+        "chickens": null,
+        "feed": null
+      },
+      "bank": {
+        "total": {
+          "value": 4210,
+          "ref": "дастгох!F9",
+          "formula": "=+F12+F15+F18+F21+F24+F27+F30+F33+F36"
+        },
+        "construction": {
+          "value": 0,
+          "ref": "дастгох!G9",
+          "formula": "=+G12+G15+G18+G21+G24+G27+G30+G33+G36"
+        },
+        "equipment": {
+          "value": 4210,
+          "ref": "дастгох!H9",
+          "formula": "=+H12+H15+H18+H21+H24+H27+H30+H33+H36"
+        },
+        "chickens": null,
+        "feed": null
+      }
+    },
+    "items": [
+      {
+        "row": 10,
+        "name": "Сўйиш цехини қувватини ошириш",
+        "nameRef": {
+          "value": "Сўйиш цехини қувватини ошириш",
+          "ref": "дастгох!B10"
+        },
+        "group": "slaughter",
+        "count": {
+          "value": 1,
+          "ref": "дастгох!C10"
+        },
+        "perHour": {
+          "value": 6000,
+          "ref": "дастгох!D10"
+        },
+        "capacityText": null,
+        "country": {
+          "value": "Хитой",
+          "ref": "дастгох!E10"
+        },
+        "cost": {
+          "total": {
+            "value": 700,
+            "ref": "дастгох!F10",
+            "formula": "=+G10+H10"
+          },
+          "construction": {
+            "value": 300,
+            "ref": "дастгох!G10",
+            "formula": "=+G11+G12"
+          },
+          "equipment": {
+            "value": 400,
+            "ref": "дастгох!H10",
+            "formula": "=+H11+H12"
+          },
+          "chickens": null,
+          "feed": null
+        },
+        "own": {
+          "total": {
+            "value": 300,
+            "ref": "дастгох!F11",
+            "formula": "=+G11+H11"
+          },
+          "construction": {
+            "value": 300,
+            "ref": "дастгох!G11"
+          },
+          "equipment": {
+            "value": null,
+            "ref": "дастгох!H11"
+          },
+          "chickens": null,
+          "feed": null
+        },
+        "bank": {
+          "total": {
+            "value": 400,
+            "ref": "дастгох!F12",
+            "formula": "=+G12+H12"
+          },
+          "construction": {
+            "value": null,
+            "ref": "дастгох!G12"
+          },
+          "equipment": {
+            "value": 400,
+            "ref": "дастгох!H12"
+          },
+          "chickens": null,
+          "feed": null
+        }
+      },
+      {
+        "row": 13,
+        "name": "Товуқни ички органларини автомат олиш дастгоҳи",
+        "nameRef": {
+          "value": "Товуқни ички органларини автомат олиш дастгоҳи",
+          "ref": "дастгох!B13",
+          "sheetText": "Товуқни ички органларини автомат олиш дастгохи"
+        },
+        "group": "slaughter",
+        "count": {
+          "value": 1,
+          "ref": "дастгох!C13"
+        },
+        "perHour": {
+          "value": 6000,
+          "ref": "дастгох!D13"
+        },
+        "capacityText": null,
+        "country": {
+          "value": "Польша",
+          "ref": "дастгох!E13"
+        },
+        "cost": {
+          "total": {
+            "value": 700,
+            "ref": "дастгох!F13",
+            "formula": "=+F14+F15"
+          },
+          "construction": {
+            "value": 0,
+            "ref": "дастгох!G13",
+            "formula": "=+G14+G15"
+          },
+          "equipment": {
+            "value": 700,
+            "ref": "дастгох!H13",
+            "formula": "=+H14+H15"
+          },
+          "chickens": null,
+          "feed": null
+        },
+        "own": {
+          "total": {
+            "value": 0,
+            "ref": "дастгох!F14",
+            "formula": "=+G14+H14"
+          },
+          "construction": {
+            "value": 0,
+            "ref": "дастгох!G14"
+          },
+          "equipment": {
+            "value": 0,
+            "ref": "дастгох!H14"
+          },
+          "chickens": null,
+          "feed": null
+        },
+        "bank": {
+          "total": {
+            "value": 700,
+            "ref": "дастгох!F15",
+            "formula": "=+G15+H15"
+          },
+          "construction": {
+            "value": null,
+            "ref": "дастгох!G15"
+          },
+          "equipment": {
+            "value": 700,
+            "ref": "дастгох!H15"
+          },
+          "chickens": null,
+          "feed": null
+        }
+      },
+      {
+        "row": 16,
+        "name": "Товуқ гўштини ҳаво линиясида совитиш дастгоҳи",
+        "nameRef": {
+          "value": "Товуқ гўштини ҳаво линиясида совитиш дастгоҳи",
+          "ref": "дастгох!B16",
+          "sheetText": "Товуқ гўштини ҳаво линиясида совитиш дастгоҳи (Музлаткич)"
+        },
+        "group": "slaughter",
+        "count": {
+          "value": 1,
+          "ref": "дастгох!C16"
+        },
+        "perHour": {
+          "value": 6000,
+          "ref": "дастгох!D16"
+        },
+        "capacityText": null,
+        "country": {
+          "value": "Хитой",
+          "ref": "дастгох!E16"
+        },
+        "cost": {
+          "total": {
+            "value": 400,
+            "ref": "дастгох!F16",
+            "formula": "=+G16+H16"
+          },
+          "construction": {
+            "value": 0,
+            "ref": "дастгох!G16",
+            "formula": "=+G17+G18"
+          },
+          "equipment": {
+            "value": 400,
+            "ref": "дастгох!H16",
+            "formula": "=+H17+H18"
+          },
+          "chickens": null,
+          "feed": null
+        },
+        "own": {
+          "total": {
+            "value": 0,
+            "ref": "дастгох!F17",
+            "formula": "=+G17+H17"
+          },
+          "construction": {
+            "value": null,
+            "ref": "дастгох!G17"
+          },
+          "equipment": {
+            "value": null,
+            "ref": "дастгох!H17"
+          },
+          "chickens": null,
+          "feed": null
+        },
+        "bank": {
+          "total": {
+            "value": 400,
+            "ref": "дастгох!F18",
+            "formula": "=+G18+H18"
+          },
+          "construction": {
+            "value": 0,
+            "ref": "дастгох!G18"
+          },
+          "equipment": {
+            "value": 400,
+            "ref": "дастгох!H18"
+          },
+          "chickens": null,
+          "feed": null
+        }
+      },
+      {
+        "row": 19,
+        "name": "Ем заводни қувватини ошириш (соатига 20 тн)",
+        "nameRef": {
+          "value": "Ем заводни қувватини ошириш (соатига 20 тн)",
+          "ref": "дастгох!B19",
+          "sheetText": "Ем заводни қувватини ошириш (соатига 20 тн) "
+        },
+        "group": "feedmill",
+        "count": {
+          "value": 1,
+          "ref": "дастгох!C19"
+        },
+        "perHour": null,
+        "capacityText": null,
+        "country": {
+          "value": "Хитой",
+          "ref": "дастгох!E19"
+        },
+        "cost": {
+          "total": {
+            "value": 600,
+            "ref": "дастгох!F19",
+            "formula": "=+G19+H19"
+          },
+          "construction": {
+            "value": 100,
+            "ref": "дастгох!G19",
+            "formula": "=+G20+G21"
+          },
+          "equipment": {
+            "value": 500,
+            "ref": "дастгох!H19",
+            "formula": "=+H20+H21"
+          },
+          "chickens": null,
+          "feed": null
+        },
+        "own": {
+          "total": {
+            "value": 100,
+            "ref": "дастгох!F20",
+            "formula": "=+G20+H20"
+          },
+          "construction": {
+            "value": 100,
+            "ref": "дастгох!G20"
+          },
+          "equipment": {
+            "value": null,
+            "ref": "дастгох!H20"
+          },
+          "chickens": null,
+          "feed": null
+        },
+        "bank": {
+          "total": {
+            "value": 500,
+            "ref": "дастгох!F21",
+            "formula": "=+G21+H21"
+          },
+          "construction": {
+            "value": 0,
+            "ref": "дастгох!G21"
+          },
+          "equipment": {
+            "value": 500,
+            "ref": "дастгох!H21"
+          },
+          "chickens": null,
+          "feed": null
+        }
+      },
+      {
+        "row": 22,
+        "name": "Жўжа ташиш учун махсус автомобиль",
+        "nameRef": {
+          "value": "Жўжа ташиш учун махсус автомобиль",
+          "ref": "дастгох!B22",
+          "sheetText": "Жўжа  ташиш учун махсус транспорт автомобили"
+        },
+        "group": "transport",
+        "count": {
+          "value": 4,
+          "ref": "дастгох!C22"
+        },
+        "perHour": null,
+        "capacityText": null,
+        "country": {
+          "value": "Хитой",
+          "ref": "дастгох!E22"
+        },
+        "cost": {
+          "total": {
+            "value": 400,
+            "ref": "дастгох!F22",
+            "formula": "=+G22+H22"
+          },
+          "construction": {
+            "value": 0,
+            "ref": "дастгох!G22",
+            "formula": "=+G23+G24"
+          },
+          "equipment": {
+            "value": 400,
+            "ref": "дастгох!H22",
+            "formula": "=+H23+H24"
+          },
+          "chickens": null,
+          "feed": null
+        },
+        "own": {
+          "total": {
+            "value": 0,
+            "ref": "дастгох!F23",
+            "formula": "=+G23+H23"
+          },
+          "construction": {
+            "value": 0,
+            "ref": "дастгох!G23"
+          },
+          "equipment": {
+            "value": null,
+            "ref": "дастгох!H23"
+          },
+          "chickens": null,
+          "feed": null
+        },
+        "bank": {
+          "total": {
+            "value": 400,
+            "ref": "дастгох!F24",
+            "formula": "=+G24+H24"
+          },
+          "construction": {
+            "value": 0,
+            "ref": "дастгох!G24"
+          },
+          "equipment": {
+            "value": 400,
+            "ref": "дастгох!H24"
+          },
+          "chickens": null,
+          "feed": null
+        }
+      },
+      {
+        "row": 25,
+        "name": "Озуқа ташиш учун махсус автомобиль (ҳар бири 25 тн)",
+        "nameRef": {
+          "value": "Озуқа ташиш учун махсус автомобиль (ҳар бири 25 тн)",
+          "ref": "дастгох!B25",
+          "sheetText": "Озуқа ташиш учун махсус транспорт ҳар бири 25тн"
+        },
+        "group": "transport",
+        "count": {
+          "value": 8,
+          "ref": "дастгох!C25"
+        },
+        "perHour": null,
+        "capacityText": null,
+        "country": {
+          "value": "Хитой",
+          "ref": "дастгох!E25"
+        },
+        "cost": {
+          "total": {
+            "value": 560,
+            "ref": "дастгох!F25",
+            "formula": "=+G25+H25"
+          },
+          "construction": {
+            "value": 0,
+            "ref": "дастгох!G25",
+            "formula": "=+G26+G27"
+          },
+          "equipment": {
+            "value": 560,
+            "ref": "дастгох!H25",
+            "formula": "=+H26+H27"
+          },
+          "chickens": null,
+          "feed": null
+        },
+        "own": {
+          "total": {
+            "value": 0,
+            "ref": "дастгох!F26",
+            "formula": "=+G26+H26"
+          },
+          "construction": {
+            "value": null,
+            "ref": "дастгох!G26"
+          },
+          "equipment": {
+            "value": null,
+            "ref": "дастгох!H26"
+          },
+          "chickens": null,
+          "feed": null
+        },
+        "bank": {
+          "total": {
+            "value": 560,
+            "ref": "дастгох!F27",
+            "formula": "=+G27+H27"
+          },
+          "construction": {
+            "value": null,
+            "ref": "дастгох!G27"
+          },
+          "equipment": {
+            "value": 560,
+            "ref": "дастгох!H27"
+          },
+          "chickens": null,
+          "feed": null
+        }
+      },
+      {
+        "row": 28,
+        "name": "Гўшт маҳсулотлари учун махсус автомобиль (10 тн)",
+        "nameRef": {
+          "value": "Гўшт маҳсулотлари учун махсус автомобиль (10 тн)",
+          "ref": "дастгох!B28",
+          "sheetText": "Ишлаб чиқариладиган гўшт махсулотлари учун махсус транспорт автомабили 10 тн"
+        },
+        "group": "transport",
+        "count": {
+          "value": 10,
+          "ref": "дастгох!C28"
+        },
+        "perHour": null,
+        "capacityText": null,
+        "country": {
+          "value": "Хитой",
+          "ref": "дастгох!E28"
+        },
+        "cost": {
+          "total": {
+            "value": 600,
+            "ref": "дастгох!F28",
+            "formula": "=+G28+H28"
+          },
+          "construction": {
+            "value": 0,
+            "ref": "дастгох!G28",
+            "formula": "=+G29+G30"
+          },
+          "equipment": {
+            "value": 600,
+            "ref": "дастгох!H28",
+            "formula": "=+H29+H30"
+          },
+          "chickens": null,
+          "feed": null
+        },
+        "own": {
+          "total": {
+            "value": 0,
+            "ref": "дастгох!F29",
+            "formula": "=+G29+H29"
+          },
+          "construction": {
+            "value": 0,
+            "ref": "дастгох!G29"
+          },
+          "equipment": {
+            "value": null,
+            "ref": "дастгох!H29"
+          },
+          "chickens": null,
+          "feed": null
+        },
+        "bank": {
+          "total": {
+            "value": 600,
+            "ref": "дастгох!F30",
+            "formula": "=+G30+H30"
+          },
+          "construction": {
+            "value": 0,
+            "ref": "дастгох!G30"
+          },
+          "equipment": {
+            "value": 600,
+            "ref": "дастгох!H30"
+          },
+          "chickens": null,
+          "feed": null
+        }
+      },
+      {
+        "row": 31,
+        "name": "Музлаткич (1000 тн)",
+        "nameRef": {
+          "value": "Музлаткич (1000 тн)",
+          "ref": "дастгох!B31",
+          "sheetText": "Музлаткич"
+        },
+        "group": "cold",
+        "count": {
+          "value": 1,
+          "ref": "дастгох!C31"
+        },
+        "perHour": null,
+        "capacityText": {
+          "value": "1000 тн",
+          "ref": "дастгох!D31"
+        },
+        "country": {
+          "value": "Хитой",
+          "ref": "дастгох!E31"
+        },
+        "cost": {
+          "total": {
+            "value": 350,
+            "ref": "дастгох!F31",
+            "formula": "=+G31+H31"
+          },
+          "construction": {
+            "value": 0,
+            "ref": "дастгох!G31",
+            "formula": "=+G32+G33"
+          },
+          "equipment": {
+            "value": 350,
+            "ref": "дастгох!H31",
+            "formula": "=+H32+H33"
+          },
+          "chickens": null,
+          "feed": null
+        },
+        "own": {
+          "total": {
+            "value": 0,
+            "ref": "дастгох!F32",
+            "formula": "=+G32+H32"
+          },
+          "construction": {
+            "value": null,
+            "ref": "дастгох!G32"
+          },
+          "equipment": {
+            "value": null,
+            "ref": "дастгох!H32"
+          },
+          "chickens": null,
+          "feed": null
+        },
+        "bank": {
+          "total": {
+            "value": 350,
+            "ref": "дастгох!F33",
+            "formula": "=+G33+H33"
+          },
+          "construction": {
+            "value": 0,
+            "ref": "дастгох!G33"
+          },
+          "equipment": {
+            "value": 350,
+            "ref": "дастгох!H33"
+          },
+          "chickens": null,
+          "feed": null
+        }
+      },
+      {
+        "row": 34,
+        "name": "Товуқ гўштини ҳар хил турдаги қадоқлаш дастгоҳлари",
+        "nameRef": {
+          "value": "Товуқ гўштини ҳар хил турдаги қадоқлаш дастгоҳлари",
+          "ref": "дастгох!B34",
+          "sheetText": "Товуқ гўштини ҳар хил турдаги  қадоқлаш дастгоҳлари"
+        },
+        "group": "slaughter",
+        "count": {
+          "value": null,
+          "ref": "дастгох!C34"
+        },
+        "perHour": null,
+        "capacityText": null,
+        "country": {
+          "value": "Хитой",
+          "ref": "дастгох!E34"
+        },
+        "cost": {
+          "total": {
+            "value": 300,
+            "ref": "дастгох!F34",
+            "formula": "=+G34+H34"
+          },
+          "construction": {
+            "value": 0,
+            "ref": "дастгох!G34",
+            "formula": "=+G35+G36"
+          },
+          "equipment": {
+            "value": 300,
+            "ref": "дастгох!H34",
+            "formula": "=+H35+H36"
+          },
+          "chickens": null,
+          "feed": null
+        },
+        "own": {
+          "total": {
+            "value": 0,
+            "ref": "дастгох!F35",
+            "formula": "=+G35+H35"
+          },
+          "construction": {
+            "value": null,
+            "ref": "дастгох!G35"
+          },
+          "equipment": {
+            "value": null,
+            "ref": "дастгох!H35"
+          },
+          "chickens": null,
+          "feed": null
+        },
+        "bank": {
+          "total": {
+            "value": 300,
+            "ref": "дастгох!F36",
+            "formula": "=+G36+H36"
+          },
+          "construction": {
+            "value": 0,
+            "ref": "дастгох!G36"
+          },
+          "equipment": {
+            "value": 300,
+            "ref": "дастгох!H36"
+          },
+          "chickens": null,
+          "feed": null
+        }
+      }
+    ]
+  },
+  "summary": {
+    "sheet": "жами лойиха",
+    "title": {
+      "value": "2026 йил давомида \"Барака Ҳамкор Парранда\" хусусий корхонасининг Кредитга бўлган талаб РЕЖАСИ",
+      "ref": "жами лойиха!B2",
+      "sheetText": "2026 йил давомида \"Барака Хамкор Парранда\" хусусий корхонасининг Кредитга бўлган талаб  РЕЖАСИ"
+    },
+    "sections": {
+      "broiler": {
+        "label": {
+          "value": "Бройлер йўналиши",
+          "ref": "жами лойиха!B6",
+          "sheetText": "Броллер йўналиши"
+        },
+        "cost": {
+          "total": {
+            "value": 21190,
+            "ref": "жами лойиха!C6",
+            "formula": "=+C7+C8"
+          },
+          "construction": {
+            "value": 6950,
+            "ref": "жами лойиха!D6",
+            "formula": "=+D7+D8"
+          },
+          "equipment": {
+            "value": 7150,
+            "ref": "жами лойиха!E6",
+            "formula": "=+E7+E8"
+          },
+          "chickens": {
+            "value": 1533,
+            "ref": "жами лойиха!F6",
+            "formula": "=+F7+F8"
+          },
+          "feed": {
+            "value": 5557,
+            "ref": "жами лойиха!G6",
+            "formula": "=+G7+G8"
+          }
+        },
+        "own": {
+          "total": {
+            "value": 9490,
+            "ref": "жами лойиха!C7",
+            "formula": "=+D7+E7+F7+G7"
+          },
+          "construction": {
+            "value": 2400,
+            "ref": "жами лойиха!D7",
+            "formula": "=+броллер!J8"
+          },
+          "equipment": {
+            "value": 0,
+            "ref": "жами лойиха!E7",
+            "formula": "=+броллер!K8"
+          },
+          "chickens": {
+            "value": 1533,
+            "ref": "жами лойиха!F7",
+            "formula": "=+броллер!L8"
+          },
+          "feed": {
+            "value": 5557,
+            "ref": "жами лойиха!G7",
+            "formula": "=+броллер!M8"
+          }
+        },
+        "bank": {
+          "total": {
+            "value": 11700,
+            "ref": "жами лойиха!C8",
+            "formula": "=+D8+E8"
+          },
+          "construction": {
+            "value": 4550,
+            "ref": "жами лойиха!D8",
+            "formula": "=+броллер!J9"
+          },
+          "equipment": {
+            "value": 7150,
+            "ref": "жами лойиха!E8",
+            "formula": "=+броллер!K9"
+          },
+          "chickens": {
+            "value": 0,
+            "ref": "жами лойиха!F8",
+            "formula": "=+броллер!L9"
+          },
+          "feed": {
+            "value": 0,
+            "ref": "жами лойиха!G8",
+            "formula": "=+броллер!M9"
+          }
+        }
+      },
+      "eggs": {
+        "label": {
+          "value": "Тухум йўналишида лойиҳа қиймати",
+          "ref": "жами лойиха!B9",
+          "sheetText": "Тухум йўналишида Лойиха қиймати"
+        },
+        "cost": {
+          "total": {
+            "value": 18030,
+            "ref": "жами лойиха!C9",
+            "formula": "=+тухум1!I7"
+          },
+          "construction": {
+            "value": 2600,
+            "ref": "жами лойиха!D9",
+            "formula": "=+D10+D11"
+          },
+          "equipment": {
+            "value": 7310,
+            "ref": "жами лойиха!E9",
+            "formula": "=+E10+E11"
+          },
+          "chickens": {
+            "value": 7630,
+            "ref": "жами лойиха!F9",
+            "formula": "=+F10+F11"
+          },
+          "feed": {
+            "value": 490,
+            "ref": "жами лойиха!G9",
+            "formula": "=+G10+G11"
+          }
+        },
+        "own": {
+          "total": {
+            "value": 2890,
+            "ref": "жами лойиха!C10",
+            "formula": "=+тухум1!I8"
+          },
+          "construction": {
+            "value": 0,
+            "ref": "жами лойиха!D10",
+            "formula": "=+тухум1!J8"
+          },
+          "equipment": {
+            "value": 2400,
+            "ref": "жами лойиха!E10",
+            "formula": "=+тухум1!K8"
+          },
+          "chickens": {
+            "value": 0,
+            "ref": "жами лойиха!F10",
+            "formula": "=+тухум1!L8"
+          },
+          "feed": {
+            "value": 490,
+            "ref": "жами лойиха!G10",
+            "formula": "=+тухум1!M8"
+          }
+        },
+        "bank": {
+          "total": {
+            "value": 15140,
+            "ref": "жами лойиха!C11",
+            "formula": "=+тухум1!I9"
+          },
+          "construction": {
+            "value": 2600,
+            "ref": "жами лойиха!D11",
+            "formula": "=+тухум1!J9"
+          },
+          "equipment": {
+            "value": 4910,
+            "ref": "жами лойиха!E11",
+            "formula": "=+тухум1!K9"
+          },
+          "chickens": {
+            "value": 7630,
+            "ref": "жами лойиха!F11",
+            "formula": "=+тухум1!L9"
+          },
+          "feed": {
+            "value": 0,
+            "ref": "жами лойиха!G11",
+            "formula": "=+тухум1!M9"
+          }
+        }
+      },
+      "processing": {
+        "label": {
+          "value": "Қайта ишлаш йўналиши бўйича",
+          "ref": "жами лойиха!B12"
+        },
+        "cost": {
+          "total": {
+            "value": 4610,
+            "ref": "жами лойиха!C12",
+            "formula": "=+D12+E12"
+          },
+          "construction": {
+            "value": 400,
+            "ref": "жами лойиха!D12",
+            "formula": "=+дастгох!G7"
+          },
+          "equipment": {
+            "value": 4210,
+            "ref": "жами лойиха!E12",
+            "formula": "=+E13+E14"
+          },
+          "chickens": {
+            "value": 0,
+            "ref": "жами лойиха!F12",
+            "formula": "=+F13+F14"
+          },
+          "feed": {
+            "value": 0,
+            "ref": "жами лойиха!G12",
+            "formula": "=+G13+G14"
+          }
+        },
+        "own": {
+          "total": {
+            "value": 400,
+            "ref": "жами лойиха!C13",
+            "formula": "=+D13+E13"
+          },
+          "construction": {
+            "value": 400,
+            "ref": "жами лойиха!D13",
+            "formula": "=+дастгох!G8"
+          },
+          "equipment": {
+            "value": 0,
+            "ref": "жами лойиха!E13",
+            "formula": "=+дастгох!H8"
+          },
+          "chickens": {
+            "value": null,
+            "ref": "жами лойиха!F13"
+          },
+          "feed": {
+            "value": null,
+            "ref": "жами лойиха!G13"
+          }
+        },
+        "bank": {
+          "total": {
+            "value": 4210,
+            "ref": "жами лойиха!C14",
+            "formula": "=+D14+E14"
+          },
+          "construction": {
+            "value": 0,
+            "ref": "жами лойиха!D14",
+            "formula": "=+дастгох!G9"
+          },
+          "equipment": {
+            "value": 4210,
+            "ref": "жами лойиха!E14",
+            "formula": "=+дастгох!H9"
+          },
+          "chickens": {
+            "value": null,
+            "ref": "жами лойиха!F14"
+          },
+          "feed": {
+            "value": null,
+            "ref": "жами лойиха!G14"
+          }
+        }
+      }
+    },
+    "total": {
+      "label": {
+        "value": "Жами лойиҳалар бўйича",
+        "ref": "жами лойиха!B15"
+      },
+      "cost": {
+        "total": {
+          "value": 43830,
+          "ref": "жами лойиха!C15",
+          "formula": "=+C12+C9+C6"
+        },
+        "construction": {
+          "value": 9950,
+          "ref": "жами лойиха!D15",
+          "formula": "=+D12+D9+D6"
+        },
+        "equipment": {
+          "value": 18670,
+          "ref": "жами лойиха!E15",
+          "formula": "=+E12+E9+E6"
+        },
+        "chickens": {
+          "value": 9163,
+          "ref": "жами лойиха!F15",
+          "formula": "=+F12+F9+F6"
+        },
+        "feed": {
+          "value": 6047,
+          "ref": "жами лойиха!G15",
+          "formula": "=+G12+G9+G6"
+        }
+      },
+      "own": {
+        "total": {
+          "value": 12780,
+          "ref": "жами лойиха!C16",
+          "formula": "=+C13+C10+C7"
+        },
+        "construction": {
+          "value": 2800,
+          "ref": "жами лойиха!D16",
+          "formula": "=+D13+D10+D7"
+        },
+        "equipment": {
+          "value": 2400,
+          "ref": "жами лойиха!E16",
+          "formula": "=+E13+E10+E7"
+        },
+        "chickens": {
+          "value": 1533,
+          "ref": "жами лойиха!F16",
+          "formula": "=+F13+F10+F7"
+        },
+        "feed": {
+          "value": 6047,
+          "ref": "жами лойиха!G16",
+          "formula": "=+G13+G10+G7"
+        }
+      },
+      "bank": {
+        "total": {
+          "value": 31050,
+          "ref": "жами лойиха!C17",
+          "formula": "=+C14+C11+C8"
+        },
+        "construction": {
+          "value": 7150,
+          "ref": "жами лойиха!D17",
+          "formula": "=+D14+D11+D8"
+        },
+        "equipment": {
+          "value": 16270,
+          "ref": "жами лойиха!E17",
+          "formula": "=+E14+E11+E8"
+        },
+        "chickens": {
+          "value": 7630,
+          "ref": "жами лойиха!F17",
+          "formula": "=+F14+F11+F8"
+        },
+        "feed": {
+          "value": 0,
+          "ref": "жами лойиха!G17",
+          "formula": "=+G14+G11+G8"
+        }
+      }
+    },
+    "feedReserve": {
+      "value": 5000,
+      "ref": "жами лойиха!C20",
+      "label": "Озуқа заҳираси учун",
+      "labelRef": "жами лойиха!B19"
+    },
+    "totalCredit": {
+      "value": 36050,
+      "ref": "жами лойиха!C22",
+      "formula": "=+C17+5000",
+      "label": "Жами кредит"
+    }
+  },
+  "flags": [
+    {
+      "level": "error",
+      "refs": [
+        "броллер!C7"
+      ],
+      "text": "Building total 47 skips rows 24, 25 (Асака 5 and 4); all rows add up to 62. E7–G7 do include those rows.",
+      "resolution": "Using 62."
+    },
+    {
+      "level": "error",
+      "refs": [
+        "тухум1!F7",
+        "тухум1!G7"
+      ],
+      "text": "Egg total 417 990 skips row 22 (parent flock, 17 520 thousand hatching eggs), but revenue G7 includes that row.",
+      "resolution": "Shown as 417 990 thousand table eggs plus 17 520 thousand parent-flock eggs; revenue covers both."
+    },
+    {
+      "level": "unit",
+      "refs": [
+        "броллер!E5",
+        "броллер!E10:E25"
+      ],
+      "text": "Header says «6 маротаба боқилади» with no unit; the formula D×C×6/1000 gives thousands of birds per year.",
+      "resolution": "Read as thousand birds per year (24 060 = 24,06 млн)."
+    },
+    {
+      "level": "unit",
+      "refs": [
+        "броллер!G5",
+        "броллер!G7:G25"
+      ],
+      "text": "Revenue has no unit; G = F (tonnes) × 1,8, i.e. $1,8 per kg in thousands of $.",
+      "resolution": "Read as thousand USD."
+    },
+    {
+      "level": "unit",
+      "refs": [
+        "тухум1!G5",
+        "тухум1!G7:G22"
+      ],
+      "text": "Revenue has no unit; 11 600 for 139,33 млн eggs only fits thousands of $.",
+      "resolution": "Read as thousand USD."
+    },
+    {
+      "level": "total",
+      "refs": [
+        "броллер!D7",
+        "дастгох!C7",
+        "дастгох!D7",
+        "тухум1!D7"
+      ],
+      "text": "броллер!D7 and тухум1!D7 add up «birds per building»; дастгох!C7 mixes buildings and vehicles and skips rows; дастгох!D7 adds three machines of the same 6 000 birds/hour line.",
+      "resolution": "Not shown. The slaughter line is shown as 6 000 birds per hour (дастгох!D10)."
+    },
+    {
+      "level": "text",
+      "refs": [
+        "дастгох!D31"
+      ],
+      "text": "«1000 тн» typed as text in the birds-per-hour column; it is the cold store's size.",
+      "resolution": "Shown as the cold store's capacity, 1 000 т."
+    },
+    {
+      "level": "question",
+      "refs": [
+        "броллер!B22",
+        "броллер!B23"
+      ],
+      "text": "Both rows are «Асака тумани 2-фабрика»; the second is floor-raised («ер усулда»).",
+      "resolution": "Shown as two rows of the same factory; both are existing («мавжуд»)."
+    },
+    {
+      "level": "question",
+      "refs": [
+        "броллер!B25",
+        "броллер!J25",
+        "броллер!K25"
+      ],
+      "text": "Асака 4-фабрика: no construction cost but new equipment (9 × 150), chicks and feed. The sheet doesn't mark it «мавжуд».",
+      "resolution": "Treated as a project (re-equipment); its 8 100 т is counted as new output. Change EXISTING_OVERRIDES in extract.py if it already produces."
+    },
+    {
+      "level": "minor",
+      "refs": [
+        "жами лойиха!C22"
+      ],
+      "text": "Formula adds a typed 5000 instead of pointing to the feed-reserve cell C20.",
+      "resolution": "Same value; the slides use C20."
+    },
+    {
+      "level": "minor",
+      "refs": [
+        "тухум1!F19",
+        "броллер!J10",
+        "броллер!K27",
+        "дастгох!A26:A27",
+        "броллер!B28"
+      ],
+      "text": "F19 is =-G19 (gives 0); J10 is =+J11++J12; K27 is =9*150; дастгох rows 26–27 are numbered 4.1/4.2; a stray «Жами» in броллер!B28.",
+      "resolution": "No effect on any number."
+    },
+    {
+      "level": "text",
+      "refs": [
+        "sheet titles",
+        "B-column names",
+        "headers"
+      ],
+      "text": "Spelling: Броллер, Хамкор, Лойиха, Трик вазнда, Дастгох, махсулот, автомабили, АКШ.",
+      "resolution": "Fixed on the slides; the sheet's text is kept in the JSON as sheetText."
+    }
+  ]
+}

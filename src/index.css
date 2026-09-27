@@ -1,0 +1,239 @@
+@import "tailwindcss";
+
+/* Brand tokens from chicken-ochre.vercel.app. Charts: bank credit = blue,
+   own funds = deep tan (the logo tan #d4a268 is too light for a chart mark). */
+@theme {
+  --color-canvas: #f8faff;
+  --color-ink: #101828;
+  --color-ink-2: #667085;
+  --color-ink-3: #98a2b3;
+  --color-hairline: #e3e8f4;
+  --color-brand-blue: #176bff;
+  --color-brand-deep: #123b8f;
+  --color-brand-purple: #7b3ff2;
+  --color-brand-purple-soft: #bda7ff;
+  --color-brand-tan: #d4a268;
+  --color-bank: #176bff;
+  --color-own: #c2853a;
+
+  --font-sans: "Onest Variable", "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --ease-brand: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-spring: cubic-bezier(0.34, 1.36, 0.64, 1);
+}
+
+@utility glass {
+  background: #ffffff9e;
+  border: 1px solid #ffffffe6;
+  box-shadow: 0 1px 0 #ffffffe6 inset, 0 10px 30px -12px #123b8f38, 0 2px 6px -2px #123b8f14;
+  backdrop-filter: blur(18px) saturate(1.4);
+}
+
+@utility glass-strong {
+  background: #ffffffd9;
+  border: 1px solid #ffffff;
+  box-shadow: 0 1px 0 #ffffff inset, 0 14px 36px -14px #123b8f40, 0 2px 6px -2px #123b8f14;
+  backdrop-filter: blur(22px) saturate(1.5);
+}
+
+@utility text-gradient {
+  background: linear-gradient(95deg, var(--color-brand-blue) 10%, var(--color-brand-purple) 90%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility eyebrow {
+  font-size: 15px;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-brand-blue);
+}
+
+@layer base {
+  html,
+  body {
+    margin: 0;
+    height: 100%;
+    background: var(--color-canvas);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    overflow: hidden;
+  }
+  button {
+    cursor: pointer;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-brand-blue);
+    outline-offset: 3px;
+  }
+}
+
+/* ---------- stage: every slide is drawn at 1920×1080 and scaled to the screen ---------- */
+
+.stage-viewport {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.stage {
+  position: relative;
+  width: 1920px;
+  height: 1080px;
+  flex: none;
+  transform-origin: center;
+  overflow: hidden;
+  background: var(--color-canvas);
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+.slide.is-active {
+  visibility: visible;
+}
+
+/* soft brand shapes behind the glass */
+.blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(80px);
+  opacity: 0.55;
+  animation: float 18s var(--ease-brand) infinite alternate;
+}
+
+@keyframes float {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(40px, -30px, 0) scale(1.08);
+  }
+}
+
+/* S key: which spreadsheet cell a number came from. Floats above the value. */
+.src-anchor {
+  position: relative;
+  display: inline-block;
+  width: 0;
+  height: 0.9em;
+  vertical-align: top;
+}
+.src-tag {
+  position: absolute;
+  right: 0;
+  bottom: 100%;
+  z-index: 30;
+  padding: 2px 6px;
+  border-radius: 6px;
+  background: #101828e6;
+  box-shadow: 0 4px 10px -4px #10182899;
+  color: #fff;
+  font: 600 11px/1.3 ui-monospace, "SF Mono", Menlo, monospace;
+  letter-spacing: 0;
+  white-space: nowrap;
+  text-transform: none;
+  pointer-events: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blob {
+    animation: none;
+  }
+}
+
+/* ---------- print: one slide per page, final state, no animation ----------
+   The same rules apply to ?print in the address bar, to preview the PDF layout. */
+
+@page {
+  size: 1920px 1080px;
+  margin: 0;
+}
+
+@media print {
+  html,
+  body {
+    height: auto;
+    overflow: visible;
+  }
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .stage-viewport {
+    position: static;
+    display: block;
+    overflow: visible;
+  }
+  .stage {
+    transform: none !important;
+    height: auto;
+  }
+  .deck {
+    position: static !important;
+  }
+  .slide {
+    position: relative !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    transform: none !important;
+    height: 1080px;
+    break-after: page;
+    background: var(--color-canvas);
+  }
+  .slide [data-anim] {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+  }
+  .blob {
+    animation: none;
+  }
+  .no-print {
+    display: none !important;
+  }
+}
+
+html.print-preview,
+html.print-preview body {
+  height: auto;
+  overflow: auto;
+}
+html.print-preview .stage-viewport {
+  position: static;
+  display: block;
+  overflow: visible;
+}
+html.print-preview .stage {
+  height: auto;
+  transform-origin: top left;
+}
+html.print-preview .deck {
+  position: static !important;
+}
+html.print-preview .slide {
+  position: relative !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  transform: none !important;
+  height: 1080px;
+  margin-bottom: 24px;
+  box-shadow: 0 0 0 1px var(--color-hairline);
+}
+html.print-preview .slide [data-anim] {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+}
+html.print-preview .no-print {
+  display: none !important;
+}
