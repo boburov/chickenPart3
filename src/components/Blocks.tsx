@@ -107,7 +107,7 @@ const BADGES: Record<Badge, { label: string; className: string }> = {
   existing: { label: 'мавжуд', className: 'bg-ink/6 text-ink-2' },
   layer: { label: 'тухум', className: 'bg-brand-blue/12 text-brand-deep' },
   pullets: { label: 'рем молодняк', className: 'bg-ink/6 text-ink-2' },
-  parent: { label: 'ота-она гала', className: 'bg-brand-purple/12 text-brand-purple' },
+  parent: { label: 'родитель галаси', className: 'bg-brand-purple/12 text-brand-purple' },
 }
 
 export function BadgeMark({ badge }: { badge: Badge }) {

@@ -24,7 +24,7 @@ export const DECK = {
 
 /** The joint-venture banner, exactly as the client's picture has it. */
 export const JOINT_VENTURE = {
-  label: 'Qo‘shma korxona',
+  label: 'Қўшма корхона',
   partners: [
     { flag: 'uz' as const, name: '“KEGEYLI BARAKA NASLLI PARRANDA” H.K' },
     { flag: 'cn' as const, name: '“BEIJING HUA DU YOUKOU POULTRY CO., LTD”' },
@@ -342,7 +342,7 @@ function eggsView(slide: number): SectionView {
   const e = data.eggs
   const t = e.totals
   const parentEggs = millions(t.parentEggs.value * 1000, t.parentEggs.sumOf)
-  const kindLabel = { layer: 'Тухум фабрикалари', pullets: 'Рем молодняк', parent: 'Ота-она гала' }
+  const kindLabel = { layer: 'Тухум фабрикалари', pullets: 'Рем молодняк', parent: 'Родитель галаси' }
   const cost = val(t.cost.total)
 
   return {
@@ -357,11 +357,11 @@ function eggsView(slide: number): SectionView {
       fig: millions(val(t.tableEggs) * 1000, [t.tableEggs.ref]),
       prefix: 'млн',
       unit: 'дона / йил',
-      chip: `+ ${formatNumber(parentEggs.value, parentEggs.decimals, true)} млн ота-она гала тухуми`,
+      chip: `+ ${formatNumber(parentEggs.value, parentEggs.decimals, true)} млн родитель галаси тухуми`,
       chipSrc: parentEggs.src,
     },
     stats: [
-      { label: 'Йиллик тушум', fig: kusdToMln(val(t.revenue), [t.revenue.ref]), prefix: 'млн', unit: '$', hint: 'ота-она гала билан' },
+      { label: 'Йиллик тушум', fig: kusdToMln(val(t.revenue), [t.revenue.ref]), prefix: 'млн', unit: '$', hint: 'родитель галаси билан' },
       { label: 'Товуқлар', fig: millions(val(t.hens) * 1000, [t.hens.ref]), prefix: 'млн', unit: 'бош' },
       { label: 'Бинолар', fig: exact(val(t.buildings), [t.buildings.ref]), unit: 'та' },
     ],
