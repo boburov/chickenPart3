@@ -97,7 +97,8 @@ export function CoverSlide({ index, controls }: { index: number; controls: DeckC
               unit="млн $"
               sub={
                 <>
-                  лойиҳа қийматининг <Num fig={f.bankPct} animate={false} className="font-semibold text-ink" />%
+                  лойиҳалар <Num fig={SUMMARY.projectCredit} animate={false} className="font-semibold text-ink" /> + озуқа заҳираси{' '}
+                  <Num fig={SUMMARY.feedReserve} animate={false} className="font-semibold text-ink" />
                 </>
               }
             />

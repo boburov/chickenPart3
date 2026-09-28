@@ -1,6 +1,6 @@
 # Смета БХП.xlsx → bhp.json: check table
 
-Source `data/Смета БХП.xlsx` · SHA-256 `549a9f197fd17666…` · extracted 2026-09-28T03:31:28
+Source `data/Смета БХП.xlsx` · SHA-256 `549a9f197fd17666…` · extracted 2026-09-28T12:27:15
 
 Regenerate with `npm run extract`. Every number below comes from the JSON the slides use. Money is in thousand $.
 
@@ -35,7 +35,7 @@ Cell address = column letter + row number. *Italic* = formula in Excel · **bold
 | 12 | minor | тухум1!F19, броллер!J10, броллер!K27, дастгох!A26:A27, броллер!B28 | F19 is =-G19 (gives 0); J10 is =+J11++J12; K27 is =9*150; дастгох rows 26–27 are numbered 4.1/4.2; a stray «Жами» in броллер!B28. | No effect on any number. |
 | 13 | text | sheet titles, B-column names, headers | Spelling: Броллер, Хамкор, Лойиха, Трик вазнда, Дастгох, махсулот, автомабили, АКШ. | Fixed on the slides; the sheet's text is kept in the JSON as sheetText. |
 | 14 | client | мижоз маълумоти, 27.09.2026 | The generator row has no count in the sheet (C is empty); the client gave 22 on 27.09.2026. | Shown as 22 та with the source «мижоз маълумоти». |
-| 15 | client | жами лойиха!C18, жами лойиха!C22 | On 27.09.2026 the client asked not to add the feed reserve to the total credit. | Жами кредит shows the projects' bank credit (жами лойиха!C17), not C22. |
+| 15 | client | жами лойиха!C18, жами лойиха!C22 | On 27.09.2026 the client asked to leave the feed reserve out of the total credit; on 28.09.2026 to add it back. | Жами кредит shows C22 = 37 631,2 (projects' bank credit C17 + feed reserve C18), with that split under it. |
 
 ## Бройлер — sheet `броллер`
 

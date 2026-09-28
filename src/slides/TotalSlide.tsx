@@ -35,7 +35,7 @@ export function TotalSlide({ onJump, slide }: { onJump: (index: number) => void;
         </div>
       </div>
 
-      {/* Жами кредит equals the bank credit (the client dropped the feed reserve), so it takes the bank card's place. */}
+      {/* Жами кредит = the projects' bank credit + the feed reserve; the bank share of the project shows in its sub-line. */}
       <div className="col-span-8 grid grid-cols-[1.15fr_1fr_1.2fr] gap-5">
         <div data-anim="rise" className="glass-strong flex flex-col justify-between rounded-[24px] p-6">
           <div className="label-caps">Лойиҳа қиймати</div>
@@ -67,7 +67,8 @@ export function TotalSlide({ onJump, slide }: { onJump: (index: number) => void;
               <span className="text-[18px] font-semibold text-white/80">млн $</span>
             </div>
             <div className="mt-2 text-[15px] font-medium text-white/85">
-              банк кредити · <Num fig={f.bankPct} animate={false} className="font-semibold text-white" />% жамидан
+              лойиҳалар <Num fig={SUMMARY.projectCredit} animate={false} className="font-semibold text-white" /> + озуқа заҳираси{' '}
+              <Num fig={SUMMARY.feedReserve} animate={false} className="font-semibold text-white" />
             </div>
           </div>
         </div>

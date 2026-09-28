@@ -2,7 +2,7 @@
   "meta": {
     "source": "data/Смета БХП.xlsx",
     "sha256": "549a9f197fd17666d55bdda5f3d28b1e05a1dfe0842f94acdf0bf85f74391772",
-    "extractedAt": "2026-09-28T03:31:28",
+    "extractedAt": "2026-09-28T12:27:15",
     "company": "Барака Ҳамкор Парранда",
     "year": "2026"
   },
@@ -2843,8 +2843,8 @@
         "жами лойиха!C18",
         "жами лойиха!C22"
       ],
-      "text": "On 27.09.2026 the client asked not to add the feed reserve to the total credit.",
-      "resolution": "Жами кредит shows the projects' bank credit (жами лойиха!C17), not C22."
+      "text": "On 27.09.2026 the client asked to leave the feed reserve out of the total credit; on 28.09.2026 to add it back.",
+      "resolution": "Жами кредит shows C22 = 37 631,2 (projects' bank credit C17 + feed reserve C18), with that split under it."
     }
   ]
 }

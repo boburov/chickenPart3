@@ -601,8 +601,8 @@ def main():
          "text": "The generator row has no count in the sheet (C is empty); the client gave 22 on 27.09.2026.",
          "resolution": "Shown as 22 та with the source «мижоз маълумоти»."},
         {"level": "client", "refs": [data["summary"]["feedReserve"]["ref"], data["summary"]["totalCredit"]["ref"]],
-         "text": "On 27.09.2026 the client asked not to add the feed reserve to the total credit.",
-         "resolution": "Жами кредит shows the projects' bank credit (жами лойиха!C17), not C22."},
+         "text": "On 27.09.2026 the client asked to leave the feed reserve out of the total credit; on 28.09.2026 to add it back.",
+         "resolution": "Жами кредит shows C22 = 37 631,2 (projects' bank credit C17 + feed reserve C18), with that split under it."},
     ]
     OUT_JSON.parent.mkdir(parents=True, exist_ok=True)
     OUT_JSON.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

@@ -603,9 +603,11 @@ export const SUMMARY = {
     }),
   ),
   costs: summaryCosts(),
-  // The client asked (27.09.2026) not to add the 5 000 feed reserve (жами лойиха!C18):
-  // Жами кредит is the projects' bank credit, not the sheet's C22.
-  totalCredit: kusdToMln(val(sum.total.bank.total), ref(sum.total.bank.total)),
+  // Жами кредит is the sheet's C22 = the projects' bank credit (C17) + the 5 000 feed reserve (C18).
+  // The client first left the reserve out (27.09.2026), then asked to add it back (28.09.2026).
+  totalCredit: kusdToMln(val(sum.totalCredit), [sum.totalCredit.ref]),
+  projectCredit: kusdToMln(val(sum.total.bank.total), ref(sum.total.bank.total)),
+  feedReserve: kusdToMln(val(sum.feedReserve), [sum.feedReserve.ref]),
   buildings: exact(val(data.broiler.totals.buildings) + val(data.eggs.totals.buildings), [
     ...refsOf(data.broiler.totals.buildings),
     data.eggs.totals.buildings.ref,
